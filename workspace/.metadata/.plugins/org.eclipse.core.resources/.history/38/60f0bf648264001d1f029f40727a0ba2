@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>position.html</title>
+</head>
+<body>
+	<div id="non">NONE</div>
+	<div id="sta">STATIC</div>
+	<div id="rel">RELATIVE</div>
+	<div id="avs">AVSOLUTE</div>
+	<div id="fix">FIXED</div>
+	
+	<div id="non">
+		CONTAINER
+		<div id="non">CHILD</div>
+	</div>
+</body>
+</html>

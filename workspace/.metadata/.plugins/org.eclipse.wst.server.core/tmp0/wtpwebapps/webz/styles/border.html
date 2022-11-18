@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>border.html</title>
+</head>
+<style>
+p	{
+	width: 100px; 
+	padding: 5px;
+	border-color: orange;
+	border-style: solid;
+	border-width: 5px;
+	background: lightyellow; 
+	text-align: center;
+}
+.radius1	{border-radius: 20px;}
+.radius2	{border-radius: 0px 20px 0px 20px;}
+.radius3	{border-radius: 10px 10px 0px 0px; box-shadow: -3px -3px 0px gray;}
+.radius4	{
+	border-radius: 50%; 
+	width: 5%; 
+	box-shadow: 3px 3px 3px gray;
+}
+img {
+	border: 3px maroon solid;
+	border-radius: 10px;
+	opacity: 0.7;
+}
+img:hover {
+	box-shadow: 3px 3px 2px gray;
+	opacity: 1.0;
+}
+</style>
+<body>
+	<h3>image border</h3>
+	<a href="../imgs/db.png" target="imgFrame">
+		<img alt="no img" src="../imgs/db.png" width="100px" height="100px">
+	</a>
+	<a href="../imgs/html.png" target="imgFrame">
+		<img alt="no img" src="../imgs/html.png" width="100px" height="100px">
+	</a>
+	<a href="../imgs/java.png" target="imgFrame">
+		<img alt="no img" src="../imgs/java.png" width="200px" height="100px">
+	</a>
+	<a href="../imgs/pngegg.png" target="imgFrame">
+		<img alt="no img" src="../imgs/pngegg.png" width="100px" height="100px">
+	</a>
+	<hr>
+	<iframe name="imgFrame" width="600px" height="300px">
+	
+	</iframe>
+	<h3>radius</h3>
+	<p class="radius4">radius 4</p>
+	<p class="radius3">radius 3</p>
+	<p class="radius2">radius 2</p>
+	<p class="radius1">radius 1</p>
+	
+	<h3>border</h3>
+	<p style="border-style: none;">none</p>
+	<p style="border-style: solid;">solid</p>
+	<p style="border-style: dashed;">dashed</p>
+	<p style="border-style: dotted;">dotted</p>
+	<p style="border-style: double;">double</p>
+	<p style="border-style: hidden;">hidden</p>
+	<p style="border-style: groove;">groove</p>
+	<p style="border-style: ridge;">ridge</p>
+	<p style="border-style: inset;">inset</p>
+	<p style="border-style: outset;">outset</p>
+	<p style="border-style: inherit;">inherit</p>
+	
+	<p style="border-top-style: outset;
+		border-right-style: dashed;
+		border-bottom-style: inset;
+		border-left-style: groove;">outset dashed inset groove</p>
+</body> 
+</html>

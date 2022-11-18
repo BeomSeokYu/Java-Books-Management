@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>color.html</title>
+<style>
+div			{color: white; font-weight: bold; padding: 5px;}
+.colorName	{background: lightpink;}
+.hexa6		{background: #CCFFEE;}
+.hexa3		{background: #EFC;}
+.rgb		{background: rgb(0, 150, 255);}
+</style>
+</head>
+<body>
+	<h3>color</h3>
+	<div class="rgb">rgb(0, 150, 255)</div>
+	<div class="hexa3">#EFC</div>
+	<div class="hexa6">#CCFFEE</div>
+	<div class="colorName">lightpink</div>
+</body>
+</html>

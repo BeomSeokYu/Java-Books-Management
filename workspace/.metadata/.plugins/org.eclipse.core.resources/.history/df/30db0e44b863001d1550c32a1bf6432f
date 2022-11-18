@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>color.html</title>
+<style>
+div		{color: white;}
+.colorName	{color: lightpink;}
+</style>
+</head>
+<body>
+	<h3>color</h3>
+	<div class="colorName">lightpink</div>
+</body>
+</html>

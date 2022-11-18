@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>selector 2</title>
+</head>
+<style>
+	h3			{background: lightblue;}
+	h3:hover 	{color: red;}
+	a 			{font-weight: bold; text-decoration: none;}
+	a:hover 	{color: white; background: blue;}
+	a:active 	{background: red;}
+	a:visited 	{color: gray;}
+	a:link 		{color: black;}
+	
+	#txt		{background: lightgreen;}
+	#txt:focus	{background: white;}
+	
+	input:disabled			{background: silver;}
+	input:enabled			{background: lightblue;}
+	
+	#auto:checked +	label	{font-weight: bold;}
+	
+	#cnn:hover 		{color: white; background: gray; text-decoration: none;}
+	table			{width: 500px; border: gray 1px; border-collapse: collapse;}
+	thead, tfoot 	{background: darkgray; align-items: center;}
+	th, td 			{padding: 5px;}
+	
+	tfoot 	{background: olive; color: maroon; text-align: right;}
+	thead 	{background: olive; color: maroon;}
+	caption	{font-size: 25px; font-weight: bold;}
+	tbody td:first-child {text-align: center;}
+	tbody td:nth-child(3) {text-align: center;}
+	tbody tr:nth-child(odd) {background: lightgray;}
+	tbody tr:hover {background: lightyellow;}
+</style>
+<body>
+	<h3>CSS selector2</h3>
+	<ol>
+		<li>반응 선택자
+			<ul>
+				<li>active / hover / focus</li>
+				<li><a href="#">[ L I N K ]</a> </li>
+				<li>
+					<input type="text" id="txt"> <br>
+					<input type="text" placeholder="읽기 전용" readonly> <br>
+					<input type="text" placeholder="disabled" disabled> <br>
+					<input type="text" placeholder="enabled">
+					<input type="checkbox" id="auto">
+					<label for="auto">자동 로그인</label>
+				</li>
+			</ul>
+		</li>
+		<li>
+			구조 선택자
+			<hr>
+			<a id="cnn" href="https://edition.cnn.com/travel/article/world-best-food-dishes/index.html" target="_blank">https://edition.cnn.com/travel/article/world-best-food-dishes/index.html</a>
+			<hr>
+			<table border="1">
+				<caption>The world's 10 best foods</caption>
+				<thead>
+					<tr>
+						<th>No.</th>
+						<th colspan="2">Food</th>
+						<th>Country</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>1</td>
+						<td>Massaman curry</td>
+						<td><img src="https://dynaimage.cdn.cnn.com/cnn/q_auto,w_602,c_fill,g_auto,h_339,ar_16:9/http%3A%2F%2Fcdn.cnn.com%2Fcnnnext%2Fdam%2Fassets%2F170228162042-massaman-curry.jpg" height="50" width="100"></td>
+						<td>Thailand</td>
+					</tr>
+					<tr><td>2</td>
+						<td>Neapolitan pizza</td>
+						<td><img src="https://dynaimage.cdn.cnn.com/cnn/q_auto,w_602,c_fill,g_auto,h_339,ar_16:9/http%3A%2F%2Fcdn.cnn.com%2Fcnnnext%2Fdam%2Fassets%2F160519172040-28-week-in-photos-0520.jpg" height="50" width="100"></td>
+						<td>Italy</td>
+					</tr>
+					<tr><td>3</td>
+						<td>Chocolate</td>
+						<td><img src="https://dynaimage.cdn.cnn.com/cnn/q_auto,w_602,c_fill,g_auto,h_339,ar_16:9/http%3A%2F%2Fcdn.cnn.com%2Fcnnnext%2Fdam%2Fassets%2F170125121146-chocolate-candies.jpg" height="50" width="100"></td>
+						<td>Mexico</td>
+					</tr>
+					<tr><td>4</td>
+						<td>Sushi</td>
+						<td><img src="https://dynaimage.cdn.cnn.com/cnn/q_auto,w_602,c_fill,g_auto,h_339,ar_16:9/http%3A%2F%2Fcdn.cnn.com%2Fcnnnext%2Fdam%2Fassets%2F170125121146-chocolate-candies.jpg" height="50" width="100"></td>
+						<td>Japan</td>
+					</tr>
+					<tr><td>5</td>
+						<td>Peking duck</td>
+						<td><img src="https://dynaimage.cdn.cnn.com/cnn/q_auto,w_602,c_fill,g_auto,h_339,ar_16:9/http%3A%2F%2Fcdn.cnn.com%2Fcnnnext%2Fdam%2Fassets%2F170125121146-chocolate-candies.jpg" height="50" width="100"></td>
+						<td>China</td>
+					</tr>
+					<tr><td>6</td>
+						<td>Hamburger</td>
+						<td ><img src="https://dynaimage.cdn.cnn.com/cnn/q_auto,w_602,c_fill,g_auto,h_339,ar_16:9/http%3A%2F%2Fcdn.cnn.com%2Fcnnnext%2Fdam%2Fassets%2F130114133424-boy-eating-hamburger-fast-food.jpg" height="50" width="100"></td>
+						<td>Germany</td>
+					</tr>
+					<tr><td>7</td>
+						<td>Penang assam laksa</td>
+						<td ><img src="https://dynaimage.cdn.cnn.com/cnn/q_auto,w_602,c_fill,g_auto,h_339,ar_16:9/http%3A%2F%2Fcdn.cnn.com%2Fcnnnext%2Fdam%2Fassets%2F170302145011-penang-assam-laksa-malaysia.jpg" height="50" width="100"></td>
+						<td>Malaysia</td>
+					</tr>
+					<tr><td>8</td>
+						<td>Tom yum goong</td>
+						<td ><img src="https://dynaimage.cdn.cnn.com/cnn/q_auto,w_602,c_fill,g_auto,h_339,ar_16:9/http%3A%2F%2Fcdn.cnn.com%2Fcnnnext%2Fdam%2Fassets%2F170302145449-tom-yum-goong-thailand.jpg" height="50" width="100"></td>
+						<td>Thailand</td>
+					</tr>
+					<tr><td>9</td>
+						<td>Ice cream</td>
+						<td ><img src="https://dynaimage.cdn.cnn.com/cnn/q_auto,w_602,c_fill,g_auto,h_339,ar_16:9/http%3A%2F%2Fcdn.cnn.com%2Fcnnnext%2Fdam%2Fassets%2F170125121146-chocolate-candies.jpg" height="50" width="100"></td>
+						<td>global</td>
+					</tr>
+					<tr><td>10</td>
+						<td>Chicken muamba</td>
+						<td ><img src="https://dynaimage.cdn.cnn.com/cnn/q_auto,w_602,c_fill,g_auto,h_339,ar_16:9/http%3A%2F%2Fcdn.cnn.com%2Fcnnnext%2Fdam%2Fassets%2F170125121146-chocolate-candies.jpg" alt="" height="50" width="100"></td>
+						<td>Gabon</td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<td colspan="4">by CNN.com Updated 30th September 2020</td>
+					</tr>
+				</tfoot>
+				</table>
+		</li>
+	</ol>
+</body>
+</html>

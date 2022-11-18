@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>position.html</title>
+<style>
+div {
+	width: 100px; height: 50px;
+	border: 1px solid gray;
+	padding: 5px;
+	margin-bottom: 10px;
+}
+#non	{background: orange;}
+#sta	{position: static; left: 10px; top: 10px; background: red;}
+#rel	{position: relative; left: 20px; top: 20px; background: yellow; z-index: 999}
+#abs	{position: absolute; left: 20px; top: 20px; background: green;}
+#fix	{position: fixed; right: 20px; top: 20px; background: blue;}
+#con	{background: gray; position: relative; overflow: hidden;}
+#chi	{background: purple; position: absolute; left: 30px; top: 30px;}
+
+img {
+	float: left;
+}
+</style>
+</head>
+<body>
+	<h3>float</h3>
+	<p>float right float right float right float right float right float right float right </p>
+	<p>float right float right float right float right float right float right float right </p>
+	<img alt="no" src="../imgs/html.png">
+	<p>float right float right float right float right float right float right float right </p>
+	<p>float right float right float right float right float right float right float right </p>
+	<p>float right float right float right float right float right float right float right </p>
+	<p>float right float right float right float right float right float right float right </p>
+	<p>float right float right float right float right float right float right float right </p>
+	<p>float right float right float right float right float right float right float right </p>
+	<p>float right float right float right float right float right float right float right </p>
+	
+	
+	<div id="non">NONE</div>
+	<div id="sta">STATIC</div>
+	<div id="rel">RELATIVE</div>
+	<div id="abs">ABSOLUTE</div>
+	<div id="fix">FIXED</div>
+	
+	<div id="con">
+		CONTAINER
+		<div id="chi">CHILD</div>
+	</div>
+</body>
+</html>

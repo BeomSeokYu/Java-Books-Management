@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h3>div tag</h3>
+	<pre>
+ - 페이지를 논리적 섹션으로 분리할 때 사용
+ - 블록 요소
+   - 한 줄 전체 차지
+   - 자체로는 의미 없음
+   - html 요소를 묶는 컨테이너로 사용
+      - 레이아웃 설정 등에 사용	
+	</pre>
+	<h3>span tag</h3>
+	<pre>
+ - 텍스트를 위한 컨테이너로 사용
+ - 인라인 요소
+ - 텍스트 일부의 스타일 속성 설정 또는 자바스크립트 조작에 사용
+	</pre>
+	<hr>
+	<div style="background: lightblue;">div tag</div>
+	<span style="background: lightyellow;">span tag</span>
+	<span style="background: lightpink;">span tag</span>
+	<span style="background: lightgreen;">span tag</span>
+	<div style="background: lightgrey;">div tag</div>
+	
+	<hr>
+	<!-- div 태그를 이용하여 레이아웃 설정 -->
+	<div id="header">
+		<h2>HEADER</h2>
+	</div>
+	<div id="menu">
+		<ul>
+			<li><a href="#">menu 1</a></li>
+			<li><a href="#">menu 2</a></li>
+			<li><a href="#">menu 3</a></li>
+		</ul>
+	</div>
+	<div id="main">
+		<div>
+			<h2>Content 1</h2>
+			<p>content content content content content content content content content content</p>
+		</div>
+		<div>
+			<h2>Content 2</h2>
+			<p>content content content content content content content content content content</p>
+		</div>
+	</div>
+	<div id="footer">
+		<span>FOOTER</span>
+	</div>
+	<hr><hr>
+	<!-- 시맨틱 태그를 이용하여 레이아웃 설정 -->
+	<header>
+		<h2>HEADER</h2>
+	</header>
+	<nav>
+		<ul>
+			<li><a href="#">menu 1</a></li>
+			<li><a href="#">menu 2</a></li>
+			<li><a href="#">menu 3</a></li>
+		</ul>
+	</nav>
+	<section>
+		<article>
+			<h2>Content 1</h2>
+			<p>content content content content content content content content content content</p>
+		</article>
+		<article>
+			<h2>Content 2</h2>
+			<p>content content content content content content content content content content</p>
+		</article>
+	</section>
+	<aside>
+	</aside>
+	<footer>
+		<span>FOOTER</span>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>basic.html</title>
+<!-- 외부 자바스크립트 파일 불러오기 -->
+<script src="../resources/script/script.js"></script>
+
+<!-- 현재 문서에서 자바스크립트 사용하기 -->
+<script>
+	document.write('hello world2');
+</script>
+</head>
+<body>
+	<h3>JavaScript</h3>
+
+	<!-- 인라인 형식으로 자바스크립트 사용하기 -->
+	<a href="javascript:document.write('hello world3');">Click!</a>
+	<button type="button" onclick="alert('hello world4');">Click</button>
+	<img src="../imgs/html.png" alt="no" onclick="this.src='../imgs/db.png'">
+</body>
+</html>

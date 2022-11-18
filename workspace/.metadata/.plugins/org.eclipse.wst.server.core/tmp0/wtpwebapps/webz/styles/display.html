@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>display.html</title>
+<style>
+span, div {
+	width: 100px;
+	border: thin solid gray;
+}
+.blo {
+	display: block;
+}
+.d {
+	display: inline;
+}
+.dd {
+	display: inline-block;
+}
+.menu li {
+	border: 1px solid gray;
+	border-radius: 10px;
+	padding: 5px 20px 5px 20px;
+	box-shadow: 5px 3px 3px gray;
+	list-style: none;
+	margin-right: 10px;
+	display: inline-block;
+}
+#non {display: none;}
+#hid {visibility: hidden;}
+</style>
+</head>
+<body>
+	<div id="hid">hidden</div>
+	<div id="non">none</div>
+
+	<h3>display ul</h3>
+	<ul class="menu">
+		<li>회사 소개</li>
+		<li>제품 안내</li>
+		<li>문의사항</li>
+		<li>자주하는 질문</li>
+		<li>게시판</li>
+	</ul>
+	<ul>
+		<li>회사 소개</li>
+		<li>제품 안내</li>
+		<li>문의사항</li>
+		<li>자주하는 질문</li>
+		<li>게시판</li>
+	</ul>
+	
+
+	<h3>display</h3>
+	
+	<h4>block element -&gt; inline-block</h4>
+	<div class="dd">THIS</div>
+	<div class="dd">IS</div>
+	<div class="dd">DIV</div>
+	
+	<h4>block element -&gt; inline</h4>
+	<div class="d">THIS</div>
+	<div class="d">IS</div>
+	<div class="d">DIV</div>
+	
+	<h4>inline element -&gt; block</h4>
+	<span class="blo">THIS</span>
+	<span class="blo">IS</span>
+	<span class="blo">SPAN</span>
+	
+	<h4>inline element</h4>
+	<span>THIS</span>
+	<span>IS</span>
+	<span>SPAN</span>
+</body>
+</html>

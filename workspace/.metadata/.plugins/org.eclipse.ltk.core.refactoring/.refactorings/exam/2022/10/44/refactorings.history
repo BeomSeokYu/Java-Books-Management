@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;LoginCheck.java&apos; to &apos;javaz/src/javaz.member&apos;&#x0D;&#x0A;- Original project: &apos;exam&apos;&#x0D;&#x0A;- Destination element: &apos;javaz/src/javaz.member&apos;&#x0D;&#x0A;- Original element: &apos;exam.dao.LoginCheck.java&apos;" description="Copy compilation unit" destination="=javaz/src&lt;javaz.member" element1="/src&lt;exam.dao{LoginCheck.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1666943256071" units="1" version="1.0"/>
+</session>

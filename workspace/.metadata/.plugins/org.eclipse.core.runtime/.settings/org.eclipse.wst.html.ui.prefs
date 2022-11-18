@@ -1,0 +1,21 @@
+autoProposeCode=<\=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
+commentBorder=\#629755 | null | null | false | null | null
+commentText=\#629755 | null | null | false | null | null
+declBoder=\#A9B7C6 | null | null | null | null | null
+doctypeExternalId=\#A9B7C6 | null | null | null | null | null
+doctypeExternalPubref=\#A9B7C6 | null | null | null | null | null
+doctypeExtrenalSysref=\#A9B7C6 | null | null | null | null | null
+doctypeName=\#A9B7C6 | null | null | null | null | null
+eclipse.preferences.version=1
+entityReference=\#CC7832 | null | false | null | null | null
+html_content_assist_default_page_sort_order=org.eclipse.wst.html.ui.proposalCategory.htmlTags\u0000org.eclipse.wst.html.ui.proposalCategory.generic\u0000org.eclipse.wst.css.ui.proposalCategory.css\u0000org.eclipse.wst.html.ui.proposalCategory.htmlTemplates\u0000org.eclipse.wst.css.ui.proposalCategory.cssTemplates\u0000
+html_content_assist_display_on_default_page=org.eclipse.wst.html.ui.proposalCategory.generic\u0000
+html_content_assist_own_page_sort_order=org.eclipse.wst.html.ui.proposalCategory.htmlTemplates\u0000org.eclipse.wst.css.ui.proposalCategory.cssTemplates\u0000org.eclipse.wst.html.ui.proposalCategory.htmlTags\u0000org.eclipse.wst.css.ui.proposalCategory.css\u0000org.eclipse.wst.html.ui.proposalCategory.generic\u0000
+newFileTemplateName=New HTML File (5)
+overriddenByCSS=,commentBorder,commentText,declBoder,doctypeExternalId,doctypeExternalPubref,doctypeExtrenalSysref,doctypeName,entityReference,tagAttributeEquals,tagAttributeName,tagAttributeValue,tagBorder,tagName,xmlContent,
+tagAttributeEquals=\#D8D8D8 | null | null | null | null | null
+tagAttributeName=\#BED6FF | null | null | null | null | null
+tagAttributeValue=\#A5C25C | null | null | null | null | null
+tagBorder=\#79ABFF | null | null | null | null | null
+tagName=\#BED6FF | null | null | null | null | null
+xmlContent=\#D8D8D8 | null | null | null | null | null

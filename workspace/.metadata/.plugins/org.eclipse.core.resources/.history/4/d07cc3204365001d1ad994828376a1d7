@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>media.html</title>
+<style>
+@media screen {
+	body {
+		background: gray; color: white;	
+	}
+}
+</style>
+</head>
+<body>
+	<h3>media quary</h3>
+</body>
+</html>

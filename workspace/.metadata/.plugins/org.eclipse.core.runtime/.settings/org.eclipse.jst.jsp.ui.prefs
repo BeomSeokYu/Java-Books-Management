@@ -1,0 +1,13 @@
+SCRIPT_AREA_BORDER=\#D8D8D8 | null | null | null | null | null
+commentBorder=\#629755 | null | null | false | null | null
+commentText=\#629755 | null | null | false | null | null
+eclipse.preferences.version=1
+jsp_content=\#D8D8D8 | null | null | null | null | null
+jsp_content_assist_default_page_sort_order=org.eclipse.wst.html.ui.proposalCategory.htmlTags\u0000org.eclipse.wst.xml.ui.proposalCategory.xmlTags\u0000org.eclipse.wst.css.ui.proposalCategory.css\u0000org.eclipse.jst.jsp.ui.proposalCategory.jsp\u0000org.eclipse.jst.jsp.ui.proposalCategory.jspJava\u0000org.eclipse.jst.jsp.ui.proposalCategory.jspTemplates\u0000org.eclipse.wst.html.ui.proposalCategory.htmlTemplates\u0000org.eclipse.wst.xml.ui.proposalCategory.xmlTemplates\u0000org.eclipse.wst.css.ui.proposalCategory.cssTemplates\u0000
+jsp_content_assist_own_page_sort_order=org.eclipse.jst.jsp.ui.proposalCategory.jspTemplates\u0000org.eclipse.wst.html.ui.proposalCategory.htmlTemplates\u0000org.eclipse.wst.xml.ui.proposalCategory.xmlTemplates\u0000org.eclipse.wst.css.ui.proposalCategory.cssTemplates\u0000org.eclipse.wst.html.ui.proposalCategory.htmlTags\u0000org.eclipse.wst.xml.ui.proposalCategory.xmlTags\u0000org.eclipse.jst.jsp.ui.proposalCategory.jsp\u0000org.eclipse.jst.jsp.ui.proposalCategory.jspJava\u0000org.eclipse.wst.css.ui.proposalCategory.css\u0000
+overriddenByCSS=,SCRIPT_AREA_BORDER,commentBorder,commentText,jsp_content,tagAttributeEquals,tagAttributeName,tagAttributeValue,tagBorder,tagName,
+tagAttributeEquals=\#D8D8D8 | null | null | null | null | null
+tagAttributeName=\#CC7832 | null | false | null | null | null
+tagAttributeValue=\#A5C25C | null | null | null | null | null
+tagBorder=\#A9B7C6 | null | null | null | null | null
+tagName=\#03a8d8 | null | true | false | false | false

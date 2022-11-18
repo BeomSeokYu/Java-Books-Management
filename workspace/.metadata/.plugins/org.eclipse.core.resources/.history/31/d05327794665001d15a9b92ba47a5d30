@@ -1,0 +1,5 @@
+@charset "UTF-8";
+
+body {
+	background: url(../../imgs/1.jpg) center / cover no-repeat fixed;
+}

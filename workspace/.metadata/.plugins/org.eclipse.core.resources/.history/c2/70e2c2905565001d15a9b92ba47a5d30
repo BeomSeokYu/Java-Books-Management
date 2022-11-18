@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>layout.html</title>
+<style>
+/* #page {
+		width: 400px;
+		background: silver;
+		margin: 0px auto;
+	} */
+body {
+	margin: 0px auto;
+	width: 500px;
+}
+body header, section, aside, footer {
+	text-align: center;
+	border: thin solid gray;
+}
+@media screen and (min-width:801px) {
+	header {
+		height: 100px;
+	}
+	nav {
+		height: 50px;
+		text-align: center;
+		border: thin solid gray;
+	}
+	nav li {
+		margin-left:20px; margin-right:20px;
+		text-align: center;
+		list-style: none;
+		display: inline;
+	}
+	main {
+		overflow: hidden;
+	}
+	section {
+		width: 298px;
+		height: 100px;
+		float: left;
+	}
+	aside {
+		width: 198px;
+		height: 100px;
+		float: right;
+	}
+	footer {
+		height: 50px;
+	}
+}
+@media screen and (max-width:800px) {
+	header {
+		height: 100px;
+	}
+	nav {
+		height: 110px;
+		border: thin solid gray;
+	}
+	section {
+		height: 120px;
+	}
+	aside {
+		height: 70px;
+	}
+	footer {
+		height: 50px;
+	}
+}
+</style>
+</head>
+<body>
+	<div id="page">
+		<!-- <h3>layout</h3> -->
+	</div>
+	
+	<header>
+		<h3>HEADER</h3>
+	</header>
+	<nav>
+		<ul>
+			<li>JAVA</li>
+			<li>Database</li>
+			<li>HTML</li>
+			<li>CSS</li>
+		</ul>
+	</nav>
+	<main>
+		<section>
+			<h3>MAIN</h3>
+		</section>
+		<aside>
+			<h3>ASIDE</h3>
+		</aside>
+	</main>
+	<footer>
+		<h3>FOOTER</h3>
+	</footer>
+</body>
+</html>

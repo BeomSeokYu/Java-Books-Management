@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>background.html</title>
+<style>
+.grad {
+	width: 100px;
+	border: 1px solid gray;
+}
+</style>
+</head>
+<body>
+	<h3>Background</h3>
+	<div class="grad">BACKGROUND GRADATION</div>
+	<div class="grad2">BACKGROUND GRADATION</div>
+</body>
+</html>

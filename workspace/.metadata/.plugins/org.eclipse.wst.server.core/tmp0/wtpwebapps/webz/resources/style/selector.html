@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>selector.html</title>
+<style>
+	/* 전체 선택자 */
+	* 			{color:gray;}
+	/* 타입 선택자 */
+	h2 			{color:pink;}
+	/* 아이디 선택자 */
+	#modu 		{color: lightblue;}
+	/* 클래스 선택자 */
+	.class		{color: lightgreen;}
+	.blubg 		{background: lightblue;}
+	h2.class	{color: lightyellow;}
+	/* 속성 선택자 */
+	input[type]				{background: yellow;}
+	button[type="submit"]	{background: lightpink;}
+	a[title~="rose"]		{background: darkgray;} /* ~ : 공백이 있는 것 */
+	a[title|="black"]		{background: green;}	/* | : -이 있는 것 */
+	/* ------------------결합 선택자----------------------------------------- */
+	/* 자식 선택자 */
+	p > em	 	{ background: gray; color: white;}
+	/* 후손 선택자 */
+	ul li		{font-weight: bold;}
+	/* 바로 다음 형제(동위) 선택자 */
+	p +	p		{border: 1px solid red;}
+	/* 다음의 모든 형제(동위) 선택자 */
+	li.bor ~ li	{background: #ccffee;}
+	/*  */
+	#child1, #child2 {font-size: 20pt;}
+	
+</style>
+</head>
+<body>
+	<h1 style="color:black">CSS Selector</h1>
+	
+	<h2 class="blubg">Let's CSS!</h2>
+	<h2>What is <em class="class">selector?</em></h2>
+	<ol>
+		<li>
+			기본 선택자
+			<ul>
+				<li>전체 선택자 : *</li>
+				<li class="class">타입 선택자 : 요소 이름</li>
+				<li id="modu">아이디 선택자 : #아이디</li>
+				<li class="class">클래스 선택자 : 요소명.클래스</li>
+				<li>속성 선택자 <br>
+					<input type="text"> <br>
+					<input type="password">
+					<input type="reset">
+					<button type="submit">제출</button>
+					<hr>
+					<a href="#" title="black rose">ROSE</a>
+					<a href="#" title="black-orange">ROSE</a>
+				</li>
+			</ul>
+		</li>
+	</ol>
+	
+	<ol>
+		<li>기본 선택자</li>
+		<li>결합 선택자
+			<p><em id="child1">자식</em>, 후손, 형제, 그룹</p>
+			<p>&gt; space + ~,</p>
+			<ul>
+				<li id="child2">
+					<em>자식 선택자</em> &gt;
+				</li>
+				<li>후손 선택자 space</li>
+				<li class="bro">바로 뒤의 형제 선택자 +</li>
+				<li>다음에 오는 형제 선택자 ~</li>
+				<li>그룹 선택자 ,
+					<p>콤마로 구분하여 여러 선택자들을 한꺼번에 선택</p>
+				</li>
+			</ul>
+			<p>문맥이나 요소의 구조를 기반으로 결합</p>
+		</li>
+	</ol>
+</body>
+</html>

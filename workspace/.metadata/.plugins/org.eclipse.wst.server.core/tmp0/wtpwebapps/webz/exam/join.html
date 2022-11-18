@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원가입</title>
+<link rel="stylesheet" href="./style/style.css">
+</head>
+<body>
+	<form action="index.html" method="post" enctype="multipart/form-data" novalidate>
+		<fieldset>
+		<legend>[ 필수 항목 ]</legend>
+			<label>아이디　　　　
+				<input 	type="text" name="id" size="15" maxlength="20"
+						autocomplete="off" 
+						required autofocus>
+			</label>
+			<br>
+			<label>비밀번호　　　
+				<input 	type="password" name="pw" size="15" maxlength="20"
+					required>
+			</label>
+			<br>
+			<label>비밀번호　확인
+				<input 	type="password" name="pw" size="15" maxlength="20"
+					required>
+			</label>
+			<br>
+			<label>이름　　　　　
+				<input 	type="text" name="name" size="15" maxlength="20"
+						autocomplete="off" required>
+			</label>
+		</fieldset>
+		<fieldset>
+		<legend>[ 선택  항목 ]</legend>
+			<label>사진　　　　
+				<input type="file"name="photo" accept="image/*">
+			</label>
+			<br>
+			<label>이메일　　　
+				<input type="email" name="keyword" size="15">
+			</label>
+			<br>
+			<label>성별　　　　</label>
+			<label for="genderM"><input type="radio" name="gender" id="genderM" value="M">남자</label>
+			<label for="genderF"><input type="radio" name="gender" id="genderF" value="F">여자</label>
+		</fieldset>
+		<button type="reset">다시쓰기</button>
+		<button type="button">이전으로</button>
+		<button>가입</button>
+	</form>
+</body>
+</html>

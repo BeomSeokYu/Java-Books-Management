@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>boxMedel.html</title>
+</head>
+<body>
+	<h3>box model</h3>
+	<div class="upDiv"></div>
+	<p>paragraph</p>
+	<div class="downDiv"></div>
+</body>
+</html>

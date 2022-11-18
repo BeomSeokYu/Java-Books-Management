@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>layout.html</title>
+<style>
+/* #page {
+		width: 400px;
+		background: silver;
+		margin: 0px auto;
+	} */
+body {
+	width: 500px;
+}
+body header, section, aside, footer {
+	text-align: center;
+	border: thin solid gray;
+}
+@media screen and (min-width:801px) {
+	header {
+		width: inherit;
+		height: 100px;
+	}
+	nav {
+		width: inherit;
+		height: 50px;
+		margin-left: 30px;
+		border: thin solid gray;
+	}
+	nav li {
+		list-style: none;
+		display: inline-block;
+	}
+	main {
+		overflow: hidden;
+	}
+	section {
+		width: 298px;
+		height: 100px;
+		float: left;
+	}
+	aside {
+		width: 198px;
+		height: 100px;
+		float: right;
+	}
+	footer {
+		width: inherit;
+		height: 50px;
+	}
+}
+@media screen and (max-width:800px) {
+	body {
+		width: 500px;
+	}
+	header {
+		width: 500px;
+		height: 100px;
+	}
+	nav {
+		width: 500px;
+		height: 110px;
+		border: thin solid gray;
+	}
+	section {
+		width: 500px;
+		height: 120px;
+	}
+	aside {
+		width: 500px;
+		height: 70px;
+	}
+	footer {
+		width: 500px;
+		height: 50px;
+	}
+}
+</style>
+</head>
+<body>
+	<div id="page">
+		<!-- <h3>layout</h3> -->
+	</div>
+	
+	<header>
+		<h3>HEADER</h3>
+	</header>
+	<nav>
+		<ul>
+			<li>JAVA</li>
+			<li>Database</li>
+			<li>HTML</li>
+			<li>CSS</li>
+		</ul>
+	</nav>
+	<main>
+		<section>
+			<h3>MAIN</h3>
+		</section>
+		<aside>
+			<h3>ASIDE</h3>
+		</aside>
+	</main>
+	<footer>
+		<h3>FOOTER</h3>
+	</footer>
+</body>
+</html>

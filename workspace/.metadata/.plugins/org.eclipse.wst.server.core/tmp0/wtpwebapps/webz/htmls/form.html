@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>form.html</title>
+</head>
+<body>	
+	<h3>form tag</h3>
+	서버로 데이터를 전송하기 위해 사용<br>
+	<ul>
+		<li>GET 방식
+			<ul>
+				<li>URL 주소 뒤에 파라미터를 붙여서 데이터 전달
+				<li>길이 제한 - 최대 2048자(4096바이트)
+				<li>북마크, 뒤로가기 가능
+				<li>보안 X			
+			</ul>
+		</li>
+		<li>POST 방식
+			<ul>
+				<li>HTTP Request 헤더에 포함시켜서 데이터 전달
+				<li>길이 제한 X
+				<li>북마크, 뒤로가기 X
+				<li>보안 O
+			</ul>
+		</li>
+		<li>속성<br>
+		action : 이동 위치 URL<br>
+		method : 데이터 전송 방식 get(기본) | post<br>
+		name : 폼의 이름 지정<br>
+		id : 폼의 아이디 지정
+	</ul>
+	
+	<hr>
+	
+	<form action="result.html">
+		<input type="text">
+		<input type="submit">
+	</form>
+	
+	<form action="result.html">
+		<input type="text" name="code">
+		<input type="submit" value="GET">
+	</form>
+	
+	<form action="result.html" method="post">
+		<input type="text" name="code">
+		<input type="submit" value="POST">
+	</form>
+	<hr>
+	<form action="result.html" method="get" enctype="multipart/form-data">
+		<fieldset>
+			<legend>[ input tag - visible ]</legend>
+			<div>
+			<!-- label 태크
+					- input 태그의 의미 정의를 위해 사용
+					- text, password, radio, checkbox, file에는 꼭 사용 권장
+			 -->
+				<label>아이디　
+				<input 	type="text" name="userid" size="15" maxlength="10"
+						placeholder="영문자+숫자" autocomplete="off" 
+						required autofocus value="qwer">
+				</label>
+			</div>
+			<div>
+				<label>비밀번호
+				<input 	type="password" name="userpw" size="15" maxlength="10"
+						placeholder="영문자+숫자+특수문자" required value="1234">
+				</label>
+			</div>
+			<div>
+				<label>성별　　</label>
+				<label for="genderM"><input type="radio" name="gender" id="genderM" value="M">남자</label>
+				<label for="genderF"><input type="radio" name="gender" id="genderF" value="F">여자</label>
+			</div>
+			<div>
+				<label>관심분야</label>
+				<label for="java"><input type="checkbox" id="java" name="interest" value="java">Java</label>
+				<label for="db"><input type="checkbox" id="db" name="interest" value="db">DB</label>
+				<label for="html"><input type="checkbox" id="html" name="interest" value="html" checked="checked">HTML</label>
+			</div>
+			<div>
+				<label>이력서　　　</label>
+				<input type="file"name="resume" accept="text/*">
+			</div>
+			<div>
+				<label>자기소개서　</label>
+				<input type="file"name="Introduce" accept=".pdf, .doc">
+			</div>
+			<div>
+				<label>사진　　　　</label>
+				<input type="file"name="photo" accept="image/*" multiple>
+			</div>
+		</fieldset>
+		<fieldset>
+			<legend>[ input tag - invisible ]</legend>
+			<div>
+				<input type="hidden" name="hiddenVal" value="98">
+			</div>
+		</fieldset>
+		<fieldset>
+			<legend>[ input tag - buttons ]</legend>
+			<div>
+				<input type="button" name="BUTTON" value="BUTTON">
+				<input type="reset" name="RESET" value="RESET">
+				<input type="button" name="BUTTON2" onclick="alert('hi~');" value="hi~ BUTTON">
+				<input type="submit" value="제출">
+				<input type="image" src="../imgs/pngegg.png" style="width:100px; height:100px">
+				<input type="submit" value="index" formaction="../index.html" formmethod="post">
+			</div>
+		</fieldset>
+		<fieldset>
+			<legend>[ button tag ]</legend>
+			<div>
+				<button type="button" name="BUTTON">BUTTON</button>
+				<button type="reset" name="RESET">RESET</button>
+				<button type="button" name="BUTTON2" onclick="alert('hi~');">hi~ BUTTON</button>
+				<button type="submit">제출</button>
+				<button>제출</button>
+				<button><img src="../imgs/pngegg.png" style="width:100px; height:100px"></button>
+			</div>
+		</fieldset>
+	</form>
+	
+	<br><br><br>
+	
+	<form action="./result.html" method="get">
+		<fieldset>
+			<legend>[ input - from HTML5 ]</legend>
+			검색어　　　 <input type="search" name="keyword"> <br>
+			전화번호　　 <input type="tel" name="phone" title="입력 형식의 예 : 02-1234-5678" pattern="0\d{1,2}-\d{3,4}-\d{4}"> <br>
+			이메일　　　 <input type="email" name="keyword" required value="qwer@asdf"> <br>
+			홈페이지　　 <input type="url" name="homepage" value="https://qwerasdf.com"> <br>
+			홈페이지2 　 <input type="url" name="homepage" value="https://qwerasdf.com" readonly> <br>
+			<hr>
+			주문수량　　 <input type="number" name="quantity" value="0" step="2" max="10" min="0"> <br>
+			상품레벨　　 <input type="range" name="level" value="0" step="2" max="10" min="0"> <br>
+			희망색상　　 <input type="color" name="color"> <br>
+			기본색상　　 <input type="color" name="color" value="#ffffff"> <br>
+			<hr>
+			희망배송일　　<input type="date" name="deliveryDate"> <br>
+			배송시간　　　<input type="time" name="deliveryTime"> <br>
+			희망배송일시　<input type="datetime-local" name="delivery"> <br>
+			<hr>
+			배송요청사항 <br>
+			<textarea rows="5" cols="50" draggable="false" name="requests"></textarea> <br>
+			이용약관 <br>
+			<textarea rows="5" cols="50" draggable="false" name="terms" readonly>이용약관</textarea> <br>
+			<textarea rows="5" cols="50" draggable="false" name="terms" disabled>이용약관</textarea> <br>
+			<hr>
+			<select name="part1">
+				<option value="자바">JAVA</option>
+				<option value="데이터베이스">DB</option>
+				<option value="html" selected>HTML</option>
+				<option value="스타일시트">CSS</option>
+				<option value="js">JavaScript</option>
+				<option value="ajax">AJAX</option>
+			</select>
+			<!-- 콤보 박스 -->
+			<select name="part2" size="4">
+				<option value="jQuery">jQuery</option>
+				<option value="JSP">JSP</option>
+				<option value="Spring Framework" selected>Spring Framework</option>
+				<option value="Project" disabled>Project</option>
+			</select>
+			<!-- 목록 그룹 -->
+			<select name="part3" size="4" multiple>
+				<optgroup label="part3-1">
+					<option value="python">Python</option>
+					<option value="Python Data visualization">Python Data visualization</option>
+					<option value="AWS">AWS</option>
+				</optgroup>
+				<optgroup label="part3-2">
+					<option value="Cloud" selected>Cloud</option>
+					<option value="Elasticsearch">Elasticsearch</option>
+					<option value="Project">Project</option>
+				</optgroup>
+			</select>
+			<hr>
+			Browser List
+			<input type="text" list="browsers" name="browserList">
+			<datalist id="browsers">
+				<option label="edge" value="edge">
+				<option label="chrome" value="chrome">
+				<option label="firefox" value="firefox">
+				<option label="opera" value="opera">
+			</datalist>
+			<hr>
+			<input type="hidden" name="key" value="123">
+			<button formaction="../index.html">INDEX</button>
+			<button>SUBMIT</button>
+		</fieldset>
+	</form>
+	
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
