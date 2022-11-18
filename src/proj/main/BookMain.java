@@ -13,6 +13,8 @@ import proj.vo.BookVO;
 public class BookMain {
 	private BookDAO bDao;
 	private ArrayList<BookVO> list;
+	private int page = 0;
+	private int max_page = 0;
 	
 	public BookMain() {
 		bDao = new BookDAO();
@@ -36,15 +38,23 @@ public class BookMain {
 	 ********************************************************************************/
 	/**
 	 * COM_005 전체 도서 목록
+	 * @param allList : boolean
 	 */
 	public void bookList() {
+		list = (ArrayList<BookVO>) bDao.selectAllBook();
 		while (true) {
 			boolean loop = false;
-			list = (ArrayList<BookVO>) bDao.selectAllBook();
 			System.out.println(Constant.HD_BOOK_LIST);
 			System.out.printf(Constant.FORMAT_BOOK_LIST_COL,"번호", "저자명", "출판사", "제목");
+			System.out.println(Constant.EL_L);
 			if(!list.isEmpty()) {
-				for(int i = 0; i < list.size(); i++) {
+				max_page = (int)list.size()/10;
+				int start = page * 10;
+				int end = start + 10;
+				if (end > list.size()) {
+					end = list.size();
+				}
+				for(int i = start; i < end; i++) {
 					System.out.printf(Constant.FORMAT_BOOK_LIST_DAT, 
 							i+1, 
 							list.get(i).getAuthor(), 
@@ -54,28 +64,45 @@ public class BookMain {
 			} else {
 				System.out.println(">> 저장된 목록이 없습니다");
 			}
-			System.out.println(Constant.EL_S);
-			System.out.print(">> 상세히 볼 번호 선택(뒤로 : 0) : ");
-			int bookidx = -2;
-			try {
-				bookidx = Pub.sc.nextInt()-1;
-			} catch (Exception e) {}
-			Pub.sc.nextLine();
-			if(bookidx == -1 && Pub.id != null) {
-				if(Pub.id.equals(Constant.ADMIN_ID)) {
-					bookAdminMenu();
-				} else {
-					bookMemberMenu();
-				}
-			} else if (bookidx > -1 && bookidx < list.size()){
-				bookInfo(list.get(bookidx), Constant.BOOK_LIST);
-			} else {
-				System.out.println(">> 없는 번호 입니다.");
+			System.out.println("\t\t\t- "+(page+1)+"/"+(max_page+1)+" page -");
+			System.out.println(Constant.EL_L);
+			System.out.println("(번호)자세히 보기 (0)뒤로 ([)이전 페이지 (])다음 페이지");
+			System.out.println(Constant.EL_L);
+			System.out.print(Constant.SELECT);
+			String input = null;
+			input = Pub.sc.nextLine();
+			switch (input) {
+			case "[":
+				if (page > 0) page--;
 				loop = true;
+				break;
+			case "]":
+				if (page < max_page) page++;
+				loop = true;
+				break;
+			default:
+				int bookidx = -2;
+				try {
+					bookidx = Integer.parseInt(input)-1;
+				} catch (NumberFormatException e) {}
+				if(bookidx == -1 && Pub.id != null) {
+					if(Pub.id.equals(Constant.ADMIN_ID)) {
+						bookAdminMenu();
+					} else {
+						bookMemberMenu();
+					}
+				} else if (bookidx > -1 && bookidx < list.size()){
+					bookInfo(list.get(bookidx), Constant.BOOK_LIST);
+				} else {
+					System.out.println(">> 없는 번호 입니다.");
+					loop = true;
+				}
+				break;
 			}
 			if (!loop) break;
 		}
 	}
+	
 	/**
 	 * COM_006 도서 상세보기
 	 */
@@ -155,7 +182,8 @@ public class BookMain {
 			} catch (InputMismatchException e) {}
 			Pub.sc.nextLine();
 			switch (select) {
-			case 1:	bookList();
+			case 1:	page = 0;
+					bookList();
 					break;
 			case 2:	searchMenu();
 					break;
@@ -209,29 +237,50 @@ public class BookMain {
 		while (true) {
 			boolean loop = false;
 			if(!list.isEmpty()) {
+				max_page = (int)list.size()/10;
 				System.out.println(Constant.HD_BOOK_SEARCH_LIST);
 				System.out.printf(Constant.FORMAT_BOOK_LIST_COL,"번호", "저자명", "출판사", "제목");
-				for(int i = 0; i < list.size(); i++) {
+				int start = page * 10;
+				int end = start + 10;
+				if (end > list.size()) {
+					end = list.size();
+				}
+				for(int i = start; i < end; i++) {
 					System.out.printf(Constant.FORMAT_BOOK_LIST_DAT, 
 							i+1,
 							list.get(i).getAuthor(), 
 							list.get(i).getPublisher(), 
 							list.get(i).getBookName());
 				}
-				System.out.println(Constant.EL_S);
-				System.out.print(">> 상세히 볼 번호 선택(뒤로 : 0) : ");
-				int bookidx = -2;
-				try {
-					bookidx = Pub.sc.nextInt()-1;
-				} catch (InputMismatchException e) {}
-				Pub.sc.nextLine();	
-				if(bookidx == -1) {
-					searchMenu();
-				} else if (bookidx > -1 && bookidx < list.size()){
-					bookInfo(list.get(bookidx), Constant.SEARCH_LIST);
-				} else {
-					System.out.println(">> 없는 번호 입니다.");
-					searchList();
+				System.out.println("\t\t\t- "+(page+1)+"/"+(max_page+1)+" page -");
+				System.out.println(Constant.EL_L);
+				System.out.println(" (번호)자세히 보기  (0)뒤로  ([)이전 페이지  (])다음 페이지");
+				System.out.println(Constant.EL_L);
+				System.out.print(Constant.SELECT);
+				String input = null;
+				input = Pub.sc.nextLine();
+				switch (input) {
+				case "[":
+					if (page > 0) page--;
+					loop = true;
+					break;
+				case "]":
+					if (page < max_page) page++;
+					loop = true;
+					break;
+				default:
+					int bookidx = -2;
+					try {
+						bookidx = Integer.parseInt(input)-1;
+					} catch (NumberFormatException e) {}
+					if(bookidx == -1) {
+						searchMenu();
+					} else if (bookidx > -1 && bookidx < list.size()){
+						bookInfo(list.get(bookidx), Constant.SEARCH_LIST);
+					} else {
+						System.out.println(">> 없는 번호 입니다.");
+						searchList();
+					}
 				}
 			} else {
 				System.out.println(Constant.HD_BOOK_SEARCH_LIST);
@@ -263,9 +312,9 @@ public class BookMain {
 		System.out.println(Constant.HD_BOOK_SEARCH_BOOK_NAME);
 		System.out.print(">> 도서명 입력 : ");
 		String sword = Pub.sc.nextLine();
+		System.out.println(Constant.EL_S);
 		list = (ArrayList<BookVO>) bDao.selectName(sword);
 		searchList();
-		System.out.println(Constant.EL_S);
 	}
 	/**
 	 * USR_017 저자명검색
@@ -274,9 +323,9 @@ public class BookMain {
 		System.out.println(Constant.HD_BOOK_SEARCH_BOOK_NAME);
 		System.out.print(">> 저자명 입력 : ");
 		String sword = Pub.sc.nextLine();
+		System.out.println(Constant.EL_S);
 		list = (ArrayList<BookVO>) bDao.selectAuthor(sword);
 		searchList();
-		System.out.println(Constant.EL_S);
 	}
 	
 	/**
@@ -286,9 +335,9 @@ public class BookMain {
 		System.out.println(Constant.HD_BOOK_SEARCH_BOOK_NAME);
 		System.out.print(">> 출판사 입력 : ");
 		String sword = Pub.sc.nextLine();
+		System.out.println(Constant.EL_S);
 		list = (ArrayList<BookVO>) bDao.selectPublisher(sword);
 		searchList();
-		System.out.println(Constant.EL_S);
 	}
 	
 	
@@ -314,7 +363,8 @@ public class BookMain {
 			} catch (InputMismatchException e) {}
 			Pub.sc.nextLine();
 			switch (select) {
-			case 1:	bookList();
+			case 1:	page = 0;
+					bookList();
 					break;
 			case 2:	regBook();
 					break;
