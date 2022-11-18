@@ -12,6 +12,7 @@ public interface Constant {
 	String SELECT = ">> 선택 : ";
 	String FORMAT_BOOK_LIST_COL = " %-5s\t%-10s\t%-10s\t%-50s\n";
 	String FORMAT_BOOK_LIST_DAT = " %-6d\t%-10s\t%-10s\t%-50s\n";
+	String STR_EMPTY = "";
 	int SEARCH_LIST = 1;
 	int BOOK_LIST = 2;
 	
