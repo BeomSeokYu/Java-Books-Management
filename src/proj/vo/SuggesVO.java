@@ -7,7 +7,7 @@ public class SuggesVO {
 	private String title;
 	private String content;
 	private String id;
-	private String comment;
+	private String reply;
 	private String checked ;
 	private Date regDate;
 	private Date modDate;
@@ -36,11 +36,11 @@ public class SuggesVO {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getComment() {
-		return comment;
+	public String getReply() {
+		return reply;
 	}
-	public void setComment(String comment) {
-		this.comment = comment;
+	public void setReply(String reply) {
+		this.reply = reply;
 	}
 	public String getChecked() {
 		return checked;

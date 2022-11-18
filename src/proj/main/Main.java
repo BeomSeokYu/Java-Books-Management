@@ -1,13 +1,17 @@
 package proj.main;
 
 import proj.dao.MemberDAO;
+import proj.util.Constant;
+import proj.util.DBCon;
 
-public class Main {
+public class Main{
 	private MemberDAO dao;
 	
 	public static void main(String[] args) {
 		//DB connector 실행
+		DBCon.getConnection();
 		//메인 메뉴 호출
+		new Main().menu();
 	}
 	
 	// GEN_001 메인 메뉴
@@ -39,9 +43,7 @@ public class Main {
 	 */
 	//USR_001 회원 메뉴
 	public void memberMenu() {
-		System.out.println("    1.내 정보   2.내 서재   3.도서   	4.건의사항  5. 공지사항 	6.로그아웃");
-		System.out.println("------------------------------------------");
-		System.out.print(">> 선택 : ");
+		System.out.println(">> 회원 메뉴");
 	}
 	//USR_003 내 정보 수정
 	public void myInforEdit(String id) {
@@ -61,8 +63,7 @@ public class Main {
 	 */
 	//ADM_001관리자 메뉴
 	public void adminMenu() {
-		System.out.println("    1.회원 관리  2.도서 관리   3.건의사항	4.공지사");
-		System.out.println("------------------------------------------");
+		System.out.println(">> 관리자 메뉴");
 	}
 	//ADM_003회원정보수정
 	public void memberRevise(String id) {

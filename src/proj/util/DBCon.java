@@ -23,7 +23,7 @@ public class DBCon {
 		Properties prop = new Properties();
 		if (conection == null) {
 			try {
-				prop.load(new FileInputStream("src\\exam\\util\\jdbc.properties"));
+				prop.load(new FileInputStream("src\\proj\\util\\jdbc.properties"));
 				// 드라이버 로딩
 				Class.forName(prop.getProperty("driver"));
 				System.out.println("JDBA 로드 완료");
