@@ -10,12 +10,11 @@ public interface Constant {
 	String EL_M = " -------------------------------------------- ";
 	String EL_L = " ---------------------------------------------------- ";
 	String SELECT = ">> 선택 : ";
-	String FORMAT_BOOK_LIST_COL = " %-5s\t%-10s\t%-10s\t%-50s\n";
-	String FORMAT_BOOK_LIST_DAT = " %-6d\t%-10s\t%-10s\t%-50s\n";
+	String FORMAT_BOOK_LIST_COL = " %-5s\t%-25s\t%-25s\t%s\n";
+	String FORMAT_BOOK_LIST_DAT = " %-6d\t%-25s\t%-25s\t%s\n";
 	String STR_EMPTY = "";
-	int SEARCH_LIST = 1;
-	int BOOK_LIST = 2;
-	
+	int LIST_ALL = 1;
+	int LIST_SEARCH = 2;
 	
 	/****************************************************
 	 * 헤더

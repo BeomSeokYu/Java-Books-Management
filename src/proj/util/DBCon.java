@@ -33,13 +33,7 @@ public class DBCon {
 													, prop.getProperty("password"));
 				//conection.setAutoCommit(false); -- 자동 커밋 비활성
 				System.out.println("DB 연결 성공");
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
-			} catch (SQLException e) {
+			} catch (IOException | ClassNotFoundException | SQLException e) {
 				e.printStackTrace();
 			}
 			return conection;
