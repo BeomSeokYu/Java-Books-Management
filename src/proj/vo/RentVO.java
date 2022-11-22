@@ -2,10 +2,10 @@ package proj.vo;
 
 import java.sql.Date;
 
-public class RentVO {
+public class RentVO extends BookVO{
 	private int rentId;
 	private String id;
-	private String bookid;
+	private int bookId;
 	private Date rentDate;
 	private Date returnDeadline;
 	private Date returnDate;
@@ -22,11 +22,11 @@ public class RentVO {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getBookid() {
-		return bookid;
+	public int getBookId() {
+		return bookId;
 	}
-	public void setBookid(String bookid) {
-		this.bookid = bookid;
+	public void setBookId(int bookid) {
+		this.bookId = bookid;
 	}
 	public Date getRentDate() {
 		return rentDate;

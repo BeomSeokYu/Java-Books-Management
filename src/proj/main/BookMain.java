@@ -20,16 +20,16 @@ public class BookMain {
 		bDao = new BookDAO();
 	}
 	
-	public static void main(String[] args) {
-		Pub.id = "admin1";
-		//DB connector 실행
-		DBCon.getConnection();
-		//메인 메뉴 호출
-		if(Pub.id.equals(Constant.ADMIN_ID))
-			new BookMain().bookAdminMenu();
-		else
-			new BookMain().bookMemberMenu();
-	}
+//	public static void main(String[] args) {
+//		Pub.id = "asdf";
+//		//DB connector 실행
+//		DBCon.getConnection();
+//		//메인 메뉴 호출
+//		if(Pub.id.equals(Constant.ADMIN_ID))
+//			new BookMain().bookAdminMenu();
+//		else
+//			new BookMain().bookMemberMenu();
+//	}
 	
 	
 	
@@ -49,7 +49,7 @@ public class BookMain {
 			if(!list.isEmpty()) { // 리스트가 비어있지 않을 경우
 				System.out.println(Constant.HD_BOOK_LIST);
 				System.out.printf(Constant.FORMAT_BOOK_LIST_COL,"번호", "저자명", "출판사", "제목");
-				System.out.println(Constant.EL_L);
+				System.out.println(Constant.EL_XL);
 				maxPage = (int)list.size()/10;
 				int start = page * 10;
 				int end = start + 10;
@@ -61,13 +61,13 @@ public class BookMain {
 							i+1, list.get(i).getAuthor(), list.get(i).getPublisher(), list.get(i).getBookName());
 				}
 				System.out.println("\t\t\t\t- "+(page+1)+"/"+(maxPage+1)+" page -");
-				System.out.println(Constant.EL_L);
+				System.out.println(Constant.EL_XL);
 				System.out.println("(번호)자세히 보기 (0)뒤로 ([)이전 페이지 (])다음 페이지");
 				System.out.println(Constant.EL_L);
 				System.out.print(Constant.SELECT);
 				String input = null;
 				input = Pub.sc.nextLine();
-				try {
+				try { 
 					int bookidx = Integer.parseInt(input)-1;
 					if(bookidx == -1) {
 						if(Pub.id.equals(Constant.ADMIN_ID)) {
@@ -146,6 +146,7 @@ public class BookMain {
 							new BookManagement().borrow(bvo.getBookId());
 						} else {
 							System.out.println(">> 이미 대여중입니다.");
+							loop = true;
 						}
 					}
 					break;
@@ -193,7 +194,7 @@ public class BookMain {
 					break;
 			case 2:	searchMenu();
 					break;
-			case 3:	new BookManagement().borrowList();
+			case 3:	new BookManagement().borrowList(Pub.id);
 					break;
 			case 4:	new Main().memberMenu();
 					break;
@@ -327,9 +328,36 @@ public class BookMain {
 			case 1:	page = 0;
 					bookList(Constant.LIST_ALL);
 					break;
-			case 2:	regBook();
+			case 2:	regBookMenu();
 					break;
 			case 3:	new Main().adminMenu();
+					break;
+			default:System.out.println(">> 1~3 중에 선택해 주세요.");
+					loop = true;
+					break;
+			}
+			if(!loop) break;
+		}
+	}
+	public void regBookMenu() {
+		while (true) {
+			boolean loop = false;
+			System.out.println(Constant.HD_APP_BOOK_REGIST);
+			System.out.println("  1.신청도서목록     2.신규도서등록     3.뒤로");
+			System.out.println(Constant.EL_S);
+			System.out.print(Constant.SELECT);
+			int select = 0;
+			try {
+				select = Pub.sc.nextInt();
+			} catch (InputMismatchException e) {}
+			Pub.sc.nextLine();
+			switch (select) {
+			case 1:	page = 0;
+					new BookManagement().prpsBookList(Pub.id);
+					break;
+			case 2:	regNewBook();
+					break;
+			case 3:	bookAdminMenu();
 					break;
 			default:System.out.println(">> 1~3 중에 선택해 주세요.");
 					loop = true;
@@ -341,7 +369,7 @@ public class BookMain {
 	/**
 	 * ADM_008 신규 도서 등록 
 	 */
-	public void regBook() {
+	public void regNewBook() {
 		BookVO bvo = new BookVO();
 		System.out.println(Constant.HD_BOOK_REGIST);
 		System.out.print("  제목 : ");

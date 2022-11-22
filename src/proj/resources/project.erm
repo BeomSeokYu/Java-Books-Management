@@ -11,8 +11,8 @@
 	</page_setting>
 	<category_index>0</category_index>
 	<zoom>1.0</zoom>
-	<x>420</x>
-	<y>218</y>
+	<x>0</x>
+	<y>194</y>
 	<default_color>
 		<r>128</r>
 		<g>128</g>
@@ -53,14 +53,14 @@
 					<create_index>true</create_index>
 					<create_sequence>true</create_sequence>
 					<create_table>true</create_table>
-					<create_tablespace>false</create_tablespace>
-					<create_trigger>true</create_trigger>
+					<create_tablespace>true</create_tablespace>
+					<create_trigger>false</create_trigger>
 					<create_view>false</create_view>
 					<drop_index>true</drop_index>
 					<drop_sequence>true</drop_sequence>
 					<drop_table>true</drop_table>
-					<drop_tablespace>false</drop_tablespace>
-					<drop_trigger>true</drop_trigger>
+					<drop_tablespace>true</drop_tablespace>
+					<drop_trigger>false</drop_trigger>
 					<drop_view>false</drop_view>
 					<inline_column_comment>true</inline_column_comment>
 					<inline_table_comment>true</inline_table_comment>
@@ -135,7 +135,7 @@
 			</connections>
 			<display>false</display>
 			<creation_date>2022-11-18 14:21:32</creation_date>
-			<updated_date>2022-11-18 21:23:00</updated_date>
+			<updated_date>2022-11-22 09:19:41</updated_date>
 			<model_property>
 				<name>프로젝트명</name>
 				<value></value>
@@ -532,8 +532,8 @@
 			<args></args>
 			<char_semantics>false</char_semantics>
 			<description></description>
-			<logical_name>작성일</logical_name>
-			<physical_name>RED_DATE</physical_name>
+			<logical_name>등록일자</logical_name>
+			<physical_name>REG_DATE</physical_name>
 			<type>date</type>
 		</word>
 		<word>
@@ -548,7 +548,7 @@
 			<args></args>
 			<char_semantics>false</char_semantics>
 			<description></description>
-			<logical_name>등록일자</logical_name>
+			<logical_name>작성일</logical_name>
 			<physical_name>REG_DATE</physical_name>
 			<type>date</type>
 		</word>
@@ -764,28 +764,6 @@
 			<connections>
 				<relation>
 					<id>0</id>
-					<source>6</source>
-					<target>0</target>
-						<source_xp>-1</source_xp>
-						<source_yp>-1</source_yp>
-						<target_xp>-1</target_xp>
-						<target_yp>-1</target_yp>
-						<color>
-							<r>0</r>
-							<g>0</g>
-							<b>0</b>
-						</color>
-					<child_cardinality>0..n</child_cardinality>
-					<parent_cardinality>1</parent_cardinality>
-					<reference_for_pk>true</reference_for_pk>
-					<name></name>
-					<on_delete_action>RESTRICT</on_delete_action>
-					<on_update_action>RESTRICT</on_update_action>
-					<referenced_column>null</referenced_column>
-					<referenced_complex_unique_key>null</referenced_complex_unique_key>
-				</relation>
-				<relation>
-					<id>1</id>
 					<source>2</source>
 					<target>0</target>
 						<source_xp>-1</source_xp>
@@ -799,6 +777,28 @@
 						</color>
 					<child_cardinality>0..n</child_cardinality>
 					<parent_cardinality>0..1</parent_cardinality>
+					<reference_for_pk>true</reference_for_pk>
+					<name></name>
+					<on_delete_action>RESTRICT</on_delete_action>
+					<on_update_action>RESTRICT</on_update_action>
+					<referenced_column>null</referenced_column>
+					<referenced_complex_unique_key>null</referenced_complex_unique_key>
+				</relation>
+				<relation>
+					<id>1</id>
+					<source>6</source>
+					<target>0</target>
+						<source_xp>-1</source_xp>
+						<source_yp>-1</source_yp>
+						<target_xp>-1</target_xp>
+						<target_yp>-1</target_yp>
+						<color>
+							<r>0</r>
+							<g>0</g>
+							<b>0</b>
+						</color>
+					<child_cardinality>0..n</child_cardinality>
+					<parent_cardinality>1</parent_cardinality>
 					<reference_for_pk>true</reference_for_pk>
 					<name></name>
 					<on_delete_action>RESTRICT</on_delete_action>
@@ -883,7 +883,7 @@
 				<normal_column>
 					<id>2</id>
 					<referenced_column>37</referenced_column>
-					<relation>0</relation>
+					<relation>1</relation>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -917,7 +917,7 @@
 				<normal_column>
 					<id>3</id>
 					<referenced_column>12</referenced_column>
-					<relation>1</relation>
+					<relation>0</relation>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -1068,7 +1068,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>11</word_id>
+					<word_id>10</word_id>
 					<id>6</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -1101,7 +1101,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>22</word_id>
+					<word_id>23</word_id>
 					<id>7</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -1430,7 +1430,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>23</word_id>
+					<word_id>22</word_id>
 					<id>16</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -1613,7 +1613,7 @@
 					<type>decimal</type>
 					<constraint></constraint>
 					<default_value></default_value>
-					<auto_increment>false</auto_increment>
+					<auto_increment>true</auto_increment>
 					<foreign_key>false</foreign_key>
 					<not_null>true</not_null>
 					<primary_key>true</primary_key>
@@ -1901,7 +1901,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>10</word_id>
+					<word_id>11</word_id>
 					<id>27</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -1934,7 +1934,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>22</word_id>
+					<word_id>23</word_id>
 					<id>28</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -2607,6 +2607,21 @@
 			<decimal_size>0</decimal_size>
 		</sequence>
 		<sequence>
+			<name>SEQ_T_RENT_RENT_ID</name>
+			<schema></schema>
+			<increment>1</increment>
+			<min_value></min_value>
+			<max_value></max_value>
+			<start>1</start>
+			<cache></cache>
+			<nocache>false</nocache>
+			<cycle>false</cycle>
+			<order>false</order>
+			<description></description>
+			<data_type></data_type>
+			<decimal_size>0</decimal_size>
+		</sequence>
+		<sequence>
 			<name>SEQ_T_RESERVATION_RESER_ID</name>
 			<schema></schema>
 			<increment>1</increment>
@@ -2654,6 +2669,12 @@
 			<name>TRI_T_NOTICE_NOTICE_ID</name>
 			<schema></schema>
 			<sql>BEFORE INSERT ON T_NOTICE&#x0D;&#x0A;FOR EACH ROW&#x0D;&#x0A;BEGIN&#x0D;&#x0A;&#x09;SELECT SEQ_T_NOTICE_NOTICE_ID.nextval&#x0D;&#x0A;&#x09;INTO :new.NOTICE_ID&#x0D;&#x0A;&#x09;FROM dual;&#x0D;&#x0A;END</sql>
+			<description></description>
+		</trigger>
+		<trigger>
+			<name>TRI_T_RENT_RENT_ID</name>
+			<schema></schema>
+			<sql>BEFORE INSERT ON T_RENT&#x0D;&#x0A;FOR EACH ROW&#x0D;&#x0A;BEGIN&#x0D;&#x0A;&#x09;SELECT SEQ_T_RENT_RENT_ID.nextval&#x0D;&#x0A;&#x09;INTO :new.RENT_ID&#x0D;&#x0A;&#x09;FROM dual;&#x0D;&#x0A;END</sql>
 			<description></description>
 		</trigger>
 		<trigger>

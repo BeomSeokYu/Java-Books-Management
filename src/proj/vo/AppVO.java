@@ -1,6 +1,6 @@
 package proj.vo;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class AppVO {
 	private int AppId;
@@ -10,6 +10,27 @@ public class AppVO {
 	private String id;
 	private String approval;
 	private Date appDate;
+	
+	public AppVO() {
+		
+	}
+	public AppVO(Integer appId, String bookName, String author, String publisher, Date appDate) {
+		this.AppId = appId;
+		this.bookName = bookName;
+		this.author = author;
+		this.publisher = publisher;
+		this.appDate = appDate;
+	}
+	
+	public AppVO(Integer appId, String approval, String bookName, String author, String publisher, Date appDate, String id) {
+		this.AppId = appId;
+		this.bookName = bookName;
+		this.author = author;
+		this.publisher = publisher;
+		this.id = id;
+		this.approval = approval;
+		this.appDate = appDate;
+	}
 	
 	public int getAppId() {
 		return AppId;

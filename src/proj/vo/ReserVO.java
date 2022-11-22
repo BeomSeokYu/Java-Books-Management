@@ -2,7 +2,7 @@ package proj.vo;
 
 import java.util.Date;
 
-public class ReserVO {
+public class ReserVO extends RentVO{
 	private int reserId;
 	private String id;
 	private int bookid;

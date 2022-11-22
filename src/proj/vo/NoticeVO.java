@@ -6,9 +6,18 @@ public class NoticeVO {
 	private int noticeId;
 	private String title;
 	private String content;
-	private String id;
 	private Date regDate;
 	private Date modDate;
+	
+	public NoticeVO() {}
+	
+	public NoticeVO(Integer noticeId, String title, String content, Date regDate, Date modDate) {
+		this.noticeId = noticeId;
+		this.title = title;
+		this.content = content;
+		this.regDate = regDate;
+		this.modDate = modDate;
+	}
 	
 	public int getNoticeId() {
 		return noticeId;
@@ -27,12 +36,6 @@ public class NoticeVO {
 	}
 	public void setContent(String content) {
 		this.content = content;
-	}
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
 	}
 	public Date getRegDate() {
 		return regDate;
