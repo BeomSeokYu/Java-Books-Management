@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Copy element &apos;&apos; to &apos;exam.main.MemberMain.MemberInfo()&apos;&#x0D;&#x0A;- Original project: &apos;exam&apos;&#x0D;&#x0A;- Destination element: &apos;exam.main.MemberMain.MemberInfo()&apos;&#x0D;&#x0A;- Original element: &apos;exam.main.MemberMain.MemberInfo()&apos;" description="Copy method" destination="/src&lt;exam.main{MemberMain.java[MemberMain~MemberInfo" element1="/src&lt;exam.main{MemberMain.java[MemberMain~MemberInfo" flags="589830" id="org.eclipse.jdt.ui.copy" members="1" policy="org.eclipse.jdt.ui.copyMembers" stamp="1667188187737" version="1.0"/>
-</session>

@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;webz/src/main/webapp/styles/boxmodel.html&apos; to &apos;boxModel.html&apos;" description="Rename resource &apos;boxmodel.html&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/webapp/styles/boxmodel.html" name="boxModel.html" stamp="1668390120913" updateReferences="true"/>
-</session>
