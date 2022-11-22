@@ -15,14 +15,14 @@ import proj.vo.SuggesVO;
 public class SuggestionMain {
 	private SuggesDAO sdao = new SuggesDAO();
 
-	/* 공통 */
-	public static void main(String[] a) {
-		Pub.id = "admin";
-		DBCon.getConnection();
-		SuggesVO svo = new SuggesVO();
-		svo.setId(Pub.id);
-		new SuggestionMain().suggesList(svo.getId());
-	}
+//	/* 공통 */
+//	public static void main(String[] a) {
+//		Pub.id = "admin";
+//		DBCon.getConnection();
+//		SuggesVO svo = new SuggesVO();
+//		svo.setId(Pub.id);
+//		new SuggestionMain().suggesList(svo.getId());
+//	}
 
 	// COM_009 건의 사항 목록 (전체 건의사항 가져오기) done
 	public void suggesList(String id) {
@@ -163,7 +163,8 @@ public class SuggestionMain {
 				/**
 				 * Pub.id가 현재 로그인 한 사람입니다.
 				 */
-				System.out.println("1.관리자 확인   2.댓글달기    3.댓글수정   4.삭제   5.뒤로");
+				System.out.println(" 1.관리자 확인  2.댓글달기  3.댓글수정  4.삭제  5.뒤로");
+				System.out.println(Constant.EL_S);
 				System.out.print(">> 선택 :");
 				String input = Pub.sc.nextLine();
 				String num = "^[0-9]+$";
@@ -202,6 +203,7 @@ public class SuggestionMain {
 
 			} else if (Pub.id.equals(svo.getId())) {
 				System.out.println("1.수정   2.삭제   3.뒤로");
+				System.out.println(Constant.EL_S);
 				System.out.print(">> 선택 :");
 				String input = Pub.sc.nextLine();
 				String num = "^[0-9]+$";
@@ -229,25 +231,18 @@ public class SuggestionMain {
 
 				}
 			} else {
-				System.out.println("1.수정   2.삭제   3.뒤로");
+				System.out.println("1.뒤로");
+				System.out.println(Constant.EL_S);
 				System.out.print(">> 선택 :");
 				String input = Pub.sc.nextLine();
 				String num = "^[0-9]+$";
 				if (input.matches(num)) {
 					switch (Integer.parseInt(input)) {
 					case 1:
-						System.out.println("자신이 작성한 건의사항만 수정 가능합니다");
-						suggesInfo(svo, svo.getSuggesId(), from);
-						break;
-					case 2:
-						System.out.println("자신이 작성한 건의사항만 삭제 가능합니다");
-						suggesInfo(svo, svo.getSuggesId(), from);
-						break;
-					case 3:
 						suggesList(svo.getId());
 						break;
 					default:
-						System.out.println("1~3 중의 숫자를 입력해주세요");
+						System.out.println("알맞은 숫자를 입력해주세요");
 						System.out.println(Constant.EL_S);
 						suggesInfo(svo, svo.getSuggesId(), from);
 						break;
@@ -353,7 +348,6 @@ public class SuggestionMain {
 				if (svo.getChecked().equalsIgnoreCase("y")) {
 					System.out.println(">> 이미 확인한 건의사항입니다");
 				} else {
-					svo.setChecked("Y");
 					boolean res = sdao.update(svo);
 					if (res) {
 						System.out.println(">> 건의사항 확인이 완료되었습니다");
@@ -378,8 +372,6 @@ public class SuggestionMain {
 
 	// USR_015 건의 사항 등록
 	public void regSugges() {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy년MM월dd일 hh:mm:ss");
-
 		SuggesVO svo = new SuggesVO();
 		System.out.println(Constant.HD_SUG_REGIST);
 		System.out.print("  제목  : ");

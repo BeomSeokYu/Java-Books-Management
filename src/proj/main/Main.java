@@ -19,28 +19,28 @@ public class Main {
 
 	// GEN_001 메인 메뉴
 		public void menu() {
-				System.out.println(Constant.HD_MENU);
-				System.out.println("  1.회원 가입   2.로그인   3.아이디 찾기");
-				System.out.println("  4.비밀번호 찾기        5.시스템 종료");
-				System.out.println(Constant.EL_S);
-				System.out.print(Constant.SELECT);
-				input = Pub.sc.nextInt();
-				Pub.sc.nextLine();	
-				
-				switch (input) {
-				case 1 :	join();		break; //회원가입 메뉴 실행
-				case 2 :	login(); 	break; //로그인 메뉴 실행
-				case 3 :	findId();//아이디 찾기
-							break;
-				case 4 :	findPw();//비밀번호 찾기
-							break;
-				case 5 :	System.out.println(">> 시스템을 종료합니다. ");	//5이면 시스템 종료
-							System.exit(0);
-							break;
-				default:	//그외의 경우 '1~5을 입력해주세요' 출력
-					System.out.println(">> 1 ~ 5 중에 하나를 입력해주세요");
-				} 
-			}
+			System.out.println(Constant.HD_MENU);
+			System.out.println("  1.회원 가입   2.로그인   3.아이디 찾기");
+			System.out.println("  4.비밀번호 찾기        5.시스템 종료");
+			System.out.println(Constant.EL_S);
+			System.out.print(Constant.SELECT);
+			input = Pub.sc.nextInt();
+			Pub.sc.nextLine();	
+			
+			switch (input) {
+			case 1 :	join();		break; //회원가입 메뉴 실행
+			case 2 :	login(); 	break; //로그인 메뉴 실행
+			case 3 :	findId();//아이디 찾기
+						break;
+			case 4 :	findPw();//비밀번호 찾기
+						break;
+			case 5 :	System.out.println(">> 시스템을 종료합니다. ");	//5이면 시스템 종료
+						System.exit(0);
+						break;
+			default:	//그외의 경우 '1~5을 입력해주세요' 출력
+				System.out.println(">> 1 ~ 5 중에 하나를 입력해주세요");
+			} 
+		}
 
 			// COM_001 시스템 종료
 		// GEN_002 로그인
@@ -157,7 +157,7 @@ public class Main {
 				input = Pub.sc.nextInt();
 				Pub.sc.nextLine();
 				switch (input) {
-				case 1 :	new BookManagement().borrowList(Pub.id);		
+				case 1 :	new BookManagement().borrowList(Pub.id, Constant.FLAG_MEMBER_LIB);		
 							break; 
 				case 2 :	new BookManagement().reserStatus(Pub.id);		
 							break;
@@ -184,11 +184,11 @@ public class Main {
 				System.out.println(Constant.EL_S);
 				if(mvo != null) {
 					System.out.println(">> 회원님의 아이디 : " + mvo.getId());
-					menu();
 				} else {
 					System.out.println(">> 가입된 회원이 없습니다.");
-					findId();
 				}
+				System.out.println();
+				menu();
 				
 			}
 			// GEN_005 비밀번호 찾기
@@ -203,12 +203,12 @@ public class Main {
 				MemberVO mvo = mdao.select(id, name, phone);
 				System.out.println(Constant.EL_S);
 				if(mvo != null) {
-					System.out.println(mvo.getPw());
-					System.out.println(">> 비밀번호를 변경해주세요");
+					System.out.println(">> 비밀번호가 일치합니다. 비밀번호를 변경해주세요");
 					changePw(mvo);
 				} else {
 					System.out.println(">> 조건을 확인해주세요");
 				}
+				System.out.println();
 				menu();		
 			}
 		//비밀번호 변경
@@ -219,15 +219,15 @@ public class Main {
 			System.out.print(">> 신규 비밀번호 : ");
 			String newPw = Pub.sc.nextLine();
 			if (!mvo.getPw().equals(oldPw)) {
-				System.out.println("비밀번호를 확인해 주세요.");
+				System.out.println(">> 비밀번호를 확인해 주세요.");
 			} else if (mvo.getPw().equals(newPw)) {
-				System.out.println("기존 비밀번호와 같은 번호입니다.");
+				System.out.println(">> 기존 비밀번호와 같은 번호입니다.");
 			} else {
 				mvo.setPw(newPw);
 				if(mdao.update(mvo)) {
-					System.out.println("비밀번호가 변경되었습니다.");
+					System.out.println(">> 비밀번호가 변경되었습니다.");
 				} else {
-					System.out.println("비밀번호 변경에 실패하였습니다.");
+					System.out.println(">> 비밀번호 변경에 실패하였습니다.");
 				}
 			}
 		}
@@ -269,7 +269,7 @@ public class Main {
 										mvo.getId(),
 										mvo.getName(),
 										mvo.getPhone(),
-										mvo.getOverdue(),						   
+										(mvo.getOverdue().equals("N")==true?"연체없음":"연체중"),						   
 										mvo.getAddress());
 				}
 				System.out.println(Constant.EL_XL);
@@ -280,47 +280,57 @@ public class Main {
 			memberInfo(input);
 		}
 		public void memberInfo(String id) {
-			System.out.println(Constant.HD_MEMBER_INFO);
-			MemberVO mvo = mdao.select(id);
-			if (mvo != null) {
-				System.out.println("   아이디 : \t" + mvo.getId());
-				System.out.println("   비밀번호 : \t" + mvo.getPw());
-				System.out.println("   이름 : \t" + mvo.getName());
-				System.out.println("   전화번호 : \t" + mvo.getPhone());
-				System.out.println("   주소 : \t" + mvo.getAddress());
-				System.out.println("   가입날짜 : \t"
-						+ Pub.sdf.format(mvo.getJoinDate()));
-				System.out.println("   연체 여부 : \t" + mvo.getOverdue());
+			while (true) {
+				boolean loop = false;
+				System.out.println(Constant.HD_MEMBER_INFO);
+				MemberVO mvo = mdao.select(id);
+				if (mvo != null) {
+					System.out.println("   아이디 : \t" + mvo.getId());
+					System.out.println("   비밀번호 : \t" + mvo.getPw());
+					System.out.println("   이름 : \t" + mvo.getName());
+					System.out.println("   전화번호 : \t" + mvo.getPhone());
+					System.out.println("   주소 : \t" + mvo.getAddress());
+					System.out.println("   가입날짜 : \t"
+							+ Pub.sdf.format(mvo.getJoinDate()));
+					System.out.println("   연체 여부 : \t" + (mvo.getOverdue().equals("N")==true?"연체없음":"연체중"));
+					System.out.println(Constant.EL_L);
+				}
+				if(Pub.id.equals(Constant.ADMIN_ID)) {
+					System.out.println("    1.회원 정보 수정  2.회원 삭제  3.회원 대여 정보 보기   4. 뒤로");
+				} else {
+					System.out.println("    1.내 정보 수정  2.회원 탈퇴  4.뒤로 ");
+				}
 				System.out.println(Constant.EL_L);
-			}
-			if(Pub.id.equals(Constant.ADMIN_ID)) {
-				System.out.println("    1.회원 정보 수정  2.회원 삭제  3.회원 대여 정보 보기   4. 뒤로");
-			} else {
-				System.out.println("    1.내 정보 수정  2.회원 탈퇴  4.뒤로 ");
-			}
-			System.out.println(Constant.EL_L);
-			System.out.print(Constant.SELECT);
-			input = Pub.sc.nextInt();
-			Pub.sc.nextLine();	
-			switch (input) {
-			case 1 :	if(Pub.id.equals(Constant.ADMIN_ID)) {
-							modMemberAdmin(mvo.getId());		
-						} else {
-							modMember();
-						}
-						break; 
-			case 2 :	memberDelete(id);			
-						break; 
-			case 3 : 	new BookManagement().borrowList(id);
-						break; 
-			case 4 : 	if(Pub.id.equals(Constant.ADMIN_ID)) {
-							adminMenu();
-						} else {
-							memberMenu();
-						}
-			break; 
-			default:	//그외의 경우 '1~2 입력해주세요' 출력
-				System.out.println(">> 1 ~ 4 중에 하나를 입력해주세요");
+				System.out.print(Constant.SELECT);
+				input = Pub.sc.nextInt();
+				Pub.sc.nextLine();	
+				switch (input) {
+				case 1 :	if(Pub.id.equals(Constant.ADMIN_ID)) {
+								modMemberAdmin(mvo.getId());		
+							} else {
+								modMember();
+							}
+							break; 
+				case 2 :	memberDelete(id);			
+							break; 
+				case 3 : 	if(Pub.id.equals(Constant.ADMIN_ID)) {
+								new BookManagement().borrowList(id, Constant.FLAG_MEMBER_LIB);
+							} else {
+								System.out.println(">> 1 ~ 4 중에 하나를 입력해주세요");
+								loop = true;
+							}
+							break; 
+				case 4 : 	if(Pub.id.equals(Constant.ADMIN_ID)) {
+								adminMenu();
+							} else {
+								memberMenu();
+							}
+							break; 
+				default:	//그외의 경우 '1~2 입력해주세요' 출력
+					System.out.println(">> 1 ~ 4 중에 하나를 입력해주세요");
+					loop = true;
+				}
+				if(!loop) break;
 			}
 		}
 		//COM_002
@@ -329,6 +339,12 @@ public class Main {
 			boolean loop = false;
 			while(true) {
 				System.out.println(Constant.HD_MOD_MY_INFO);
+				if (mvo != null) {
+					System.out.println("   이름 : \t" + mvo.getName());
+					System.out.println("   전화번호 : \t" + mvo.getPhone());
+					System.out.println("   주소 : \t" + mvo.getAddress());
+				}
+				System.out.println(Constant.EL_S);
 				System.out.println("  1.비밀번호 변경   2.주소 변경  3.이름 변경");
 				System.out.println("  4.전화번호 변경   5.저장     6.취소");
 				System.out.println(Constant.EL_S);
@@ -425,7 +441,11 @@ public class Main {
 		
 		//ADM_004회원삭제
 		public void memberDelete(String id) {
-			System.out.println(Constant.HD_DEL_MEMBER);
+			if(Pub.id.equals(Constant.ADMIN_ID)) {
+				System.out.println(Constant.HD_DEL_MEMBER);
+			} else {
+				System.out.println(Constant.HD_DEL_MY);
+			}
 			System.out.print(">> 삭제하시려면 y를 입력해주세요. : ");
 			String yesNo = Pub.sc.nextLine();	
 			
@@ -440,6 +460,10 @@ public class Main {
 				}
 			} else {
 				System.out.println(">> 회원삭제가 취소되었습니다.");
+				if (Pub.id.equals(Constant.ADMIN_ID))
+					memberList();
+				else
+					memberInfo(Pub.id);;
 			}
 			System.out.println();
 			adminMenu();
@@ -456,6 +480,7 @@ public class Main {
 			menu();	
 		}
 		public static void main(String[] args) {
+			DBCon.getConnection();
 			new Main().menu();
 		}
 

@@ -23,10 +23,11 @@ public class ReserDAO {
 
 	// 예약
 	public boolean insertReser(ReserVO revo) {
+		System.out.println(revo.getId() +" / " + revo.getBookid());
 		sql = "SELECT RENT_AVAIL FROM t_book "
 				+ "WHERE book_id=? ";
 		BookDAO bdao = new BookDAO();
-		BookVO bvo = bdao.select(revo.getBookid());
+		bvo = bdao.select(revo.getBookid());
 		if(bvo != null && bvo.getRentAvail().equals("N")) {
 			sql = "INSERT INTO t_reservation (reser_id, reser_date, id, book_id) "
 					+ "VALUES (SEQ_T_REservation_REser_ID.NEXTVAL, sysdate, ?, ?)";

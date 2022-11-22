@@ -86,10 +86,17 @@ public class BookMain {
 					loop = true;
 				}
 			} else { // 리스트가 비었을 경우
-				if(listID == Constant.LIST_ALL)
+				if(listID == Constant.LIST_ALL) {
 					System.out.println(">> 저장된 목록이 없습니다");
-				else
+					if(Pub.id.equals(Constant.ADMIN_ID)) {
+						bookAdminMenu();
+					} else {
+						bookMemberMenu();
+					}
+				}
+				else {
 					emptySearch();
+				}
 			}
 			if (!loop) break;
 		}
@@ -114,17 +121,16 @@ public class BookMain {
 	 * @param ListID : int
 	 */
 	public void bookInfo(BookVO bvo, int ListID) {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy년MM월dd일 hh:mm:ss");
 		while (true) {
 			boolean loop = false;
 			System.out.println(Constant.HD_BOOK_INFO);
-			System.out.println("   도서번호 : " + bvo.getBookId());
-			System.out.println("   도서명 : " + bvo.getBookName());
-			System.out.println("   저자 : " + bvo.getAuthor());
-			System.out.println("   출판사 : " + bvo.getPublisher());
-			System.out.println("   등록일 : " + sdf.format(bvo.getRegDate()));
-			System.out.println("   예약자수 : " + bvo.getReserNum());
-			System.out.println("   대여가능여부 : " + bvo.getRentAvail());
+			System.out.println("   도서번호 : \t" + bvo.getBookId());
+			System.out.println("   도서명 : \t" + bvo.getBookName());
+			System.out.println("   저자 : \t" + bvo.getAuthor());
+			System.out.println("   출판사 : \t" + bvo.getPublisher());
+			System.out.println("   등록일 : \t" + Pub.sdf.format(bvo.getRegDate()));
+			System.out.println("   예약자수 : \t" + bvo.getReserNum() + " 명");
+			System.out.println("   대여가능여부 : \t" + (bvo.getRentAvail().equals("N")?"불가능":"가능"));
 			System.out.println(Constant.EL_M);
 			if(Pub.id.equals(Constant.ADMIN_ID)) {
 				System.out.println("   1.수정    2.삭제    3.뒤로");
@@ -143,7 +149,7 @@ public class BookMain {
 						modBook(bvo);
 					} else {
 						if("Y".equals(bvo.getRentAvail())) {
-							new BookManagement().borrow(bvo.getBookId());
+							new BookManagement().borrow(bvo.getBookId(), ListID);
 						} else {
 							System.out.println(">> 이미 대여중입니다.");
 							loop = true;
@@ -153,7 +159,7 @@ public class BookMain {
 			case 2:	if(Pub.id.equals(Constant.ADMIN_ID)) {
 						delBook(bvo);
 					} else {
-						new BookManagement().reserve(bvo.getBookId());
+						new BookManagement().reserve(bvo.getBookId(), ListID);
 					}
 					break;
 			case 3:	bookList(ListID);
@@ -194,7 +200,7 @@ public class BookMain {
 					break;
 			case 2:	searchMenu();
 					break;
-			case 3:	new BookManagement().borrowList(Pub.id);
+			case 3:	new BookManagement().borrowList(Pub.id, Constant.FLAG_MEMBER_BOOK);
 					break;
 			case 4:	new Main().memberMenu();
 					break;

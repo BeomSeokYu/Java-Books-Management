@@ -108,24 +108,21 @@ public class RentDAO {
 		return rvo;
 	}
 
-	public RentVO selectId(String id) {
-		sql = "select t_book.book_id, book_name, author, rent_date, return_deadline, rent_avail, rent_id from t_rent, t_book where t_book.book_id=t_rent.book_id AND id=?";
+	public RentVO selectBookId(int bookid) {
+		sql = "select rent_date, return_deadline, rent_id, id from t_rent WHERE book_id=?";
 		RentVO rvo = null;
 		try {
 			pstmt = DBCon.getConnection().prepareStatement(sql);
-			pstmt.setString(1, id);
+			pstmt.setInt(1, bookid);
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
-				// 아이디|이름|이메일|사진|성별
 				rvo = new RentVO();
-				rvo.setBookId(rs.getInt(1));
-				rvo.setBookName(rs.getString(2));
-				rvo.setAuthor(rs.getString(3));
-				rvo.setRentDate(rs.getDate(4));
-				rvo.setReturnDeadline(rs.getDate(5));
-				rvo.setRentAvail(rs.getString(6));
-				rvo.setRentId(rs.getInt(7));
+				rvo.setBookId(bookid);
+				rvo.setRentDate(rs.getDate("rent_date"));
+				rvo.setReturnDeadline(rs.getDate("return_deadline"));
+				rvo.setRentId(rs.getInt("rent_id"));
+				rvo.setId(rs.getString("id"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -40,7 +40,11 @@ public class NoticeMain {
 				Pub.sc.nextLine();
 				
 				if(input == 1) {
-					// 뒤로 가기
+					if(Pub.id.equals(Constant.ADMIN_ID)) {
+						new Main().adminMenu();
+					} else {
+						new Main().memberMenu();
+					}
 					break;
 				}else if(input == -1){
 					if(Pub.id.equals("admin")) createNotice();

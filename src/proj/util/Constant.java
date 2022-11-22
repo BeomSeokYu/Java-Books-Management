@@ -9,7 +9,7 @@ public interface Constant {
 	String EL_S = " ------------------------------------ ";
 	String EL_M = " -------------------------------------------- ";
 	String EL_L = " ---------------------------------------------------- ";
-	String EL_XL = " ------------------------------------------------------------------------ ";
+	String EL_XL = " -------------------------------------------------------------------------------- ";
 	String SELECT = ">> 선택 : ";
 	String FORMAT_BOOK_LIST_COL = " %-5s\t%-25s\t%-25s\t%s\n";
 	String FORMAT_BOOK_LIST_DAT = " %-6d\t%-25s\t%-25s\t%s\n";
@@ -18,6 +18,7 @@ public interface Constant {
 	int LIST_SEARCH = 2;
 	int FLAG_MEMBER_LIB = 1;
 	int FLAG_MEMBER_SUG = 2;
+	int FLAG_MEMBER_BOOK = 3;
 	
 	/****************************************************
 	 * 헤더
@@ -35,6 +36,7 @@ public interface Constant {
 	String HD_MOD_MY_INFO = FL+"내 정보 수정"+FL;
 	String HD_MOD_MEMBER_INFO = FL+"회원 정보 수정"+FL;
 	String HD_DEL_MEMBER = FL+"회원 삭제"+FL;
+	String HD_DEL_MY = FL+"회원 탈퇴"+FL;
 	String HD_LOGOUT = FL+"로그아웃"+FL;
 	
 	String HD_BOOK_LIST = FL+"도서 목록"+FL;
