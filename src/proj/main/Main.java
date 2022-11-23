@@ -15,7 +15,6 @@ import proj.vo.SuggesVO;
 public class Main {
 	private int input;		//키보드 입력값 저장 
 	private MemberDAO mdao = new MemberDAO();
-	private RentDAO rdao = new RentDAO();
 
 	// GEN_001 메인 메뉴
 		public void menu() {
@@ -56,6 +55,7 @@ public class Main {
 			boolean result = mdao.loginChk(id, pw);	//로그인 체크 메소드 호출
 			if(result) {
 				Pub.id = id;
+				new RentDAO().checkOverdue(Pub.id);
 				if(id.equals("admin")) { //로그인 성공 시 - 관리자이면 adminMenu() 호출
 					adminMenu();
 				} else { 
@@ -66,7 +66,6 @@ public class Main {
 				System.out.println();//메인 메뉴 표시
 				menu();
 			}
-			
 		}
 		// 관리자 메뉴
 		public void adminMenu() {
@@ -203,8 +202,8 @@ public class Main {
 				MemberVO mvo = mdao.select(id, name, phone);
 				System.out.println(Constant.EL_S);
 				if(mvo != null) {
-					System.out.println(">> 비밀번호가 일치합니다. 비밀번호를 변경해주세요");
-					changePw(mvo);
+					System.out.println(">> 입력 정보가 일치합니다. 비밀번호를 변경해주세요");
+					changeFindPw(mvo);
 				} else {
 					System.out.println(">> 조건을 확인해주세요");
 				}
@@ -221,9 +220,29 @@ public class Main {
 			if (!mvo.getPw().equals(oldPw)) {
 				System.out.println(">> 비밀번호를 확인해 주세요.");
 			} else if (mvo.getPw().equals(newPw)) {
-				System.out.println(">> 기존 비밀번호와 같은 번호입니다.");
+				System.out.println(">> 기존 비밀번호와 같은 비밀번호입니다.");
 			} else {
 				mvo.setPw(newPw);
+				if(mdao.update(mvo)) {
+					System.out.println(">> 비밀번호가 변경되었습니다.");
+				} else {
+					System.out.println(">> 비밀번호 변경에 실패하였습니다.");
+				}
+			}
+		}
+		//비밀번호 변경
+		public void changeFindPw(MemberVO mvo) {
+			System.out.println(">> 비밀번호를 변경합니다.");
+			System.out.print(">> 신규 비밀번호 : ");
+			String Pw = Pub.sc.nextLine();
+			System.out.print(">> 비밀번호 확인 : ");
+			String chkPw = Pub.sc.nextLine();
+			if (!Pw.equals(chkPw)) {
+				System.out.println(">> 입력한 비밀번호가 다릅니다.");
+			} else if (mvo.getPw().equals(Pw)) {
+				System.out.println(">> 기존 비밀번호와 같은 비밀번호입니다.");
+			} else {
+				mvo.setPw(Pw);
 				if(mdao.update(mvo)) {
 					System.out.println(">> 비밀번호가 변경되었습니다.");
 				} else {
@@ -292,7 +311,7 @@ public class Main {
 					System.out.println("   주소 : \t" + mvo.getAddress());
 					System.out.println("   가입날짜 : \t"
 							+ Pub.sdf.format(mvo.getJoinDate()));
-					System.out.println("   연체 여부 : \t" + (mvo.getOverdue().equals("N")==true?"연체없음":"연체중"));
+					System.out.println("   연체 여부 : \t" + (mvo.getOverdue().equals("N")?"연체없음":"연체중"));
 					System.out.println(Constant.EL_L);
 				}
 				if(Pub.id.equals(Constant.ADMIN_ID)) {
@@ -463,7 +482,7 @@ public class Main {
 				if (Pub.id.equals(Constant.ADMIN_ID))
 					memberList();
 				else
-					memberInfo(Pub.id);;
+					memberInfo(Pub.id);
 			}
 			System.out.println();
 			adminMenu();

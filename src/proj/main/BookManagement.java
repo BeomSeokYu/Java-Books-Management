@@ -51,10 +51,14 @@ public class BookManagement {
 		if (cnt >= 5) {
 			System.out.println(">> 최대 대여 권수 (5권)을 초과해 대여할 수 없습니다");
 		} else {
-			if (renDao.insertRent(rvo)) {
-				System.out.println("도서 대여가 완료되었습니다.");
+			if (!new RentDAO().checkOverdue(Pub.id)) {
+				if (renDao.insertRent(rvo)) {
+					System.out.println("도서 대여가 완료되었습니다.");
+				} else {
+					System.out.println("도서 대여가 실패하였습니다.");
+				}
 			} else {
-				System.out.println("도서 대여가 실패하였습니다.");
+				System.out.println(">> 연체된 회원입니다.");
 			}
 		}
 		new BookMain().bookList(from);
@@ -219,9 +223,13 @@ public class BookManagement {
 			revo.setBookid(bookId);
 			result = resDao.insertReser(revo);
 			if (result) {
-				System.out.println("도서 예약이 완료되었습니다.");
+				if(!new RentDAO().checkOverdue(Pub.id)) {
+					System.out.println(">> 도서 예약이 완료되었습니다.");
+				} else {
+					System.out.println(">> 연체된 회원입니다.");
+				}
 			} else {
-				System.out.println("도서 예약이 실패하였습니다.");
+				System.out.println(">> 도서 예약이 실패하였습니다.");
 			}
 			new BookMain().bookList(from);
 		}
@@ -475,6 +483,7 @@ public class BookManagement {
 			System.out.println("취소를 원하시면 번호를 입력해주세요");
 			System.out.println(">>입력 (나가기  '0' ) : "  );
 			int input = Pub.sc.nextInt();
+			Pub.sc.nextLine();
 			if(input == 0) {
 				new Main().memberLibrary();
 			}

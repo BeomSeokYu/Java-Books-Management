@@ -1,12 +1,10 @@
 package proj.main;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 
 import proj.dao.BookDAO;
 import proj.util.Constant;
-import proj.util.DBCon;
 import proj.util.Pub;
 import proj.vo.BookVO;
 
@@ -50,7 +48,7 @@ public class BookMain {
 				System.out.println(Constant.HD_BOOK_LIST);
 				System.out.printf(Constant.FORMAT_BOOK_LIST_COL,"번호", "저자명", "출판사", "제목");
 				System.out.println(Constant.EL_XL);
-				maxPage = (int)list.size()/10;
+				maxPage = list.size()/10;
 				int start = page * 10;
 				int end = start + 10;
 				if (end > list.size()) {
@@ -65,8 +63,7 @@ public class BookMain {
 				System.out.println("(번호)자세히 보기 (0)뒤로 ([)이전 페이지 (])다음 페이지");
 				System.out.println(Constant.EL_L);
 				System.out.print(Constant.SELECT);
-				String input = null;
-				input = Pub.sc.nextLine();
+				String input = Pub.sc.nextLine();
 				try { 
 					int bookidx = Integer.parseInt(input)-1;
 					if(bookidx == -1) {

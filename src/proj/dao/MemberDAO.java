@@ -112,14 +112,15 @@ public class MemberDAO {
 	}
 	// 회원 정보 변경
 	public boolean update(MemberVO mvo) {
-		String sql = "UPDATE t_member SET pw=?, name=?, phone=?, address=? WHERE id=?";
+		String sql = "UPDATE t_member SET pw=?, name=?, phone=?, address=?, overdue=? WHERE id=?";
 		try {
 			pstmt = DBCon.getConnection().prepareStatement(sql);
 			pstmt.setString(1, mvo.getPw());
 			pstmt.setString(2, mvo.getName());
 			pstmt.setString(3, mvo.getPhone());
 			pstmt.setString(4, mvo.getAddress());
-			pstmt.setString(5, mvo.getId());
+			pstmt.setString(5, mvo.getOverdue());
+			pstmt.setString(6, mvo.getId());
 			if(pstmt.executeUpdate() == 1) {
 				return true;
 			}

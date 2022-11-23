@@ -119,7 +119,7 @@ public class SuggestionMain {
 			System.out.println(Constant.EL_S);
 			System.out.println("상세히 볼 글 선택 (뒤로가기 : 0)");
 			int input = Pub.sc.nextInt();
-
+			Pub.sc.nextLine();
 			if (input == 0) {
 				new Main().memberLibrary(); // 내 서재로 이동
 			} else if (sdao.select(input) != null) {

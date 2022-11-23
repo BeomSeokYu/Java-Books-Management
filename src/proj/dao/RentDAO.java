@@ -14,6 +14,7 @@ import proj.util.Constant;
 import proj.util.DBCon;
 import proj.util.Pub;
 import proj.vo.BookVO;
+import proj.vo.MemberVO;
 import proj.vo.NoticeVO;
 import proj.vo.RentVO;
 import proj.vo.ReserVO;
@@ -25,7 +26,7 @@ public class RentDAO {
 	private List<RentVO> list;
 	private BookVO bvo;
 	private ReserVO revo;
-
+	
 	// 대여 END
 	public boolean insertRent(RentVO rvo) {
 		sql = "INSERT INTO t_rent (rent_id, rent_date, return_deadline, book_id, id) "
@@ -208,6 +209,40 @@ public class RentDAO {
 		} else {
 			return false;
 		}
+	}
+	
+	// 대여 END
+	public boolean checkOverdue(String id) {
+		sql = "SELECT rent_id FROM t_rent WHERE id=? AND return_deadline < SYSDATE";
+		boolean checked = false;
+		List<RentVO> rlist = new ArrayList<>();
+		try {
+			pstmt = DBCon.getConnection().prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
 
+			while (rs.next()) {
+				RentVO rvo = new RentVO();
+				rvo.setRentId(rs.getInt(1));
+				rlist.add(rvo);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBCon.close(rs, pstmt);
+		}
+		MemberVO mvo = new MemberDAO().select(id);
+		if (!rlist.isEmpty()) {
+			System.out.println("있음");
+			checked = true;
+			mvo.setOverdue("Y");
+			if(new MemberDAO().update(mvo)) {
+				System.out.println("됐음");
+			}
+		} else {
+			mvo.setOverdue("N");
+			new MemberDAO().update(mvo);
+		}
+		return checked;
 	}
 }
