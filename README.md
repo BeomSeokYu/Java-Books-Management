@@ -85,3 +85,9 @@ Java와 Oracle DB를 이용한 도서 관리 시스템 프로젝트입니다.
   </div>
 
 <br><br><br>
+
+## 상세 내용
+- 도서 관리 시스템 소개 노션 페이지 - [이동](https://bsnote.notion.site/1d6a0ccdbdad466a862ca1704e07e92f?pvs=4)
+
+
+<br><br><br>
