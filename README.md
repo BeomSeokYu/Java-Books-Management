@@ -24,7 +24,7 @@ Java와 Oracle DB를 이용한 도서 관리 시스템 프로젝트입니다.
 
 ## 프로젝트 개요
 
-이 프로젝트는 자바 및 JDBC 사용 또 프로젝트 설계에 익숙해 지기 위한 프로젝트입니다.
+이 프로젝트는 자바 언어 및 JDBC 사용 또 프로젝트 설계 능력 향상을 위한 목적의 프로젝트입니다.
 <br>
 도서관에서 사용하는 도서 관리 시스템의 기능을 구현하였습니다.
 
@@ -52,6 +52,14 @@ Java와 Oracle DB를 이용한 도서 관리 시스템 프로젝트입니다.
 - 건의사항
     - 회원은 건의사항 글을 작성할 수 있고, 관리자는 댓글, 또는 확인 여부를 남길 수 있음
 <br><br><br>
+
+## 상세 내용
+- 도서 관리 시스템 소개 노션 페이지 - [이동](https://bsnote.notion.site/17e843f9706e4b56b4b93ae5fe8f3e18?pvs=4)
+
+
+<br><br><br>
+
+
 ## 기능 정의
 <div align="center">
   <img width="500px" src="https://github.com/BeomSeokYu/Java-Books-Management/assets/69231700/75a4eca0-c716-4064-9847-f024654a7bda">
@@ -97,8 +105,3 @@ Java와 Oracle DB를 이용한 도서 관리 시스템 프로젝트입니다.
 
 <br><br><br>
 
-## 상세 내용
-- 도서 관리 시스템 소개 노션 페이지 - [이동](https://bsnote.notion.site/1d6a0ccdbdad466a862ca1704e07e92f?pvs=4)
-
-
-<br><br><br>
