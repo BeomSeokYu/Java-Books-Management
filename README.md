@@ -13,6 +13,8 @@ Java와 Oracle DB를 이용한 도서 관리 시스템 프로젝트입니다.
       <td align="center"><a href="https://github.com/BeomSeokYu"><img src="https://avatars.githubusercontent.com/u/69231700?v=4" width="100px;" alt=""/><br /><sub><b>BeomSeokYu</b></sub></a><br /></td>
       <td align="center"><a href="https://github.com/hsnkch"><img src="https://avatars.githubusercontent.com/u/111720919?v=4" width="100px;" alt=""/><br /><sub><b>hsnkch</b></sub></a><br /></td>
       <td align="center"><a href="https://github.com/gudwns4825"><img src="https://avatars.githubusercontent.com/u/122503377?v=4" width="100px;" alt=""/><br /><sub><b>gudwns4825</b></sub></a><br /></td>
+      <td align="center"><a href="https://github.com/0-light"><img src="https://avatars.githubusercontent.com/u/79148615?v=4" height=100px; width="100px;" /><br /><sub><b>0-light</b></sub></a><br /></td>
+      <td align="center"><a href="#"><img src="https://avatars.githubusercontent.com/u/79148615?v=4" height=100px; width="100px;" /><br /><sub><b>강남욱</b></sub></a><br /></td>
     </tr>
   </tbody>
 </table>
@@ -37,11 +39,20 @@ Java와 Oracle DB를 이용한 도서 관리 시스템 프로젝트입니다.
   <img src="https://img.shields.io/badge/-Oracle-CC3344?style=for-the-badge&logo=Oracle&logoColor=white" alt="Oracle">
 </a>
 
-###
 <br><br><br>
 
-
-## 기능정의
+## 주요 기능
+- 회원
+    - 모든 기능은 회원만 이용 가능
+- 도서
+    - 회원은 DB에 있는 도서에 대해 대여 / 연장 / 반납 / 예약 가능
+    - 예약의 경우 모든 도서가 대여중일 경우 가능
+- 공지사항
+    - 관리자는 공지사항 글을 작성 할 수 있으며, 모든 회원이 열람 가능
+- 건의사항
+    - 회원은 건의사항 글을 작성할 수 있고, 관리자는 댓글, 또는 확인 여부를 남길 수 있음
+<br><br><br>
+## 기능 정의
 <div align="center">
   <img width="500px" src="https://github.com/BeomSeokYu/Java-Books-Management/assets/69231700/75a4eca0-c716-4064-9847-f024654a7bda">
 </div>
